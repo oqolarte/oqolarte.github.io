@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+	<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.80.0" />
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  	
+  
+  <title>Always Carry A Book Website | of somersaulting</title>
+</head>
+
+  <body>
+    <div class="container">
+      <main id="main">
+       
+
+<h1>Always Carry A Book Website</h1>
+<div class="small">Last Update:
+<time datetime="Sat Jan 10 17:19:98 2020 &#43;0800">
+  2 Jan 2021
+</time>
+</div>
+
+<div>
+	<h4>Table of Contents</h4>
+	<aside class="small"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#status-on-going">Status: On-going</a></li>
+    <li><a href="#design-choices">Design Choices</a>
+      <ul>
+        <li><a href="#landing-page-logo">Landing Page Logo</a></li>
+        <li><a href="#payment-gateway">Payment Gateway?</a></li>
+        <li><a href="#integration-with-instagram">Integration with Instagram</a></li>
+        <li><a href="#hosting-github--netlify">Hosting: GitHub + Netlify</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-a-transaction-looks-like">How A Transaction Looks Like</a>
+      <ul>
+        <li><a href="#customer-side">Customer Side</a></li>
+        <li><a href="#dealer-side-we-the-sellers">Dealer Side (<em>we</em>, the sellers)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+</div>
+<h2 class="statusOnGoing" id="status-on-going">Status: On-going</h2>
+<p>My partner has asked me to come up with a website to act as a central hub for their recently opened online bookshop.
+This site shall mirror the contents of the shop&rsquo;s other social media presence.</p>
+<p>Visit the site, whose name I also came up with:
+<strong><a href="https://alwayscarry.netlify.app">Always Carry A Book</a></strong></p>
+<figure>
+    <img src="/image/acabooks.png"
+         alt="screenshot from Always Carry A Book website "/> <figcaption>
+            <p>Screenshot from the website</p>
+        </figcaption>
+</figure>
+
+<h2 id="design-choices">Design Choices</h2>
+<p>I figured that since this would just be a small online shop, a full-blown e-commerce site with lots of features is unnecessary.
+Having this in mind, I decided that a static site would do.
+Since I&rsquo;m already familiar with <a href="https://gohugo.io">Hugo</a>, I use it as my static site generator.</p>
+<p>The business is literally just starting out.
+One major decision is to use free software services for the time being.</p>
+<p>Of course, the intention is to scale, and add the necessary functions as the business starts raking in the dough.</p>
+<h3 id="landing-page-logo">Landing Page Logo</h3>
+<p>The cat-holding-a-book image is drawn by Isya herself, using Wacom Bamboo Tablet on <a href="https://krita.org">Krita</a>, a free and open source painting program, that&rsquo;s also available in many platforms.</p>
+<p>The image is then compressed and optimized for the web.</p>
+<h3 id="payment-gateway">Payment Gateway?</h3>
+<p>It&rsquo;s only natural for an e-commerce site to have a payment method coded in it.
+However, right now, it has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p>
+<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.</p>
+<p>Google Forms is also used for the customers to fill up when placing their orders.</p>
+<p>For now, this will have to do.</p>
+<h3 id="integration-with-instagram">Integration with Instagram</h3>
+<p>In order to reach as many prospects as possible, the shop is also available in Instagram and Facebook.
+We&rsquo;re thinking of focusing a huge chunk of content management via IG.
+Each post will then appear on the Facebook Page, and on the website.</p>
+<p>I had a brilliant idea to use Hugo&rsquo;s native integration with Instagram through their API, according to <a href="https://gohugo.io/content-management/shortcodes/#instagram">Hugo&rsquo;s documentation</a>.
+The first try, though, it already failed.</p>
+<p>It turns out, the Instagram shortcode is deprecated since 24 Oct 2020, <a href="https://github.com/gohugoio/hugo/issues/7879">according to this discussion.</a></p>
+<p>Good thing that from that same discussion, <a href="https://github.com/gohugoio/hugo/issues/7879#issuecomment-737149676">monsieurnebo&rsquo;s fix</a> (based on ToniTornado, but with a bit smaller code) got it going for me.</p>
+<p>For the time being, I can use the IG photo&rsquo;s ID to be embedded on the site.</p>
+<h3 id="hosting-github--netlify">Hosting: GitHub + Netlify</h3>
+<p>The source files are on GitHub. The HTML files are then deployed to Netlify.</p>
+<p>I make the changes (edit, generate the site, etc.) locally, in a laptop.
+These changes are then committed and pushed to the GitHub repository.
+Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p>
+<h2 id="how-a-transaction-looks-like">How A Transaction Looks Like</h2>
+<p>Here, I outline the processes involved for the customer and the dealer.
+We will look</p>
+<h3 id="customer-side">Customer Side</h3>
+<ol>
+<li>Customer browses the book list, and makes a selection.</li>
+<li>Customer fills up the Form, giving us the needed details of the order.</li>
+<li>Customer waits for the invoice.
+Ideally, it arrives within 24 hours.
+When the invoice is confirmed to have been received, this informs the customer that their order is reserved under their name for the next 24 hours.</li>
+<li>Customer pays within 24 hours of receiving the invoice.
+Otherwise, the reservation is revoked, and the order is made available again for the public.</li>
+<li>Once payment is verified, package will be packed and sent.
+Customer&rsquo;s waiting duration depends on the delivery option they chose in the Form.</li>
+<li>Customer tracks the package until they receive it.</li>
+<li>Customer receives the package, and the transaction is complete.</li>
+</ol>
+<h3 id="dealer-side-we-the-sellers">Dealer Side (<em>we</em>, the sellers)</h3>
+<ol>
+<li>We check the Google Form at least once a day for any orders made.
+We also check our other inboxes (Facebook, Instagram, and Gmail) for any inquiries people might have for us.</li>
+<li>We will process orders in a first-come-first-serve basis.
+This means that an order will be given to the next one in line if the one before failed to pay within 24 hours.</li>
+<li>We send the invoice to the customer.
+This will also let them know that the order is reserved under their name for the next 24 hours.</li>
+<li>If payment is made, we will start packing.
+Else, as mentioned, it is made available again, or is given to the next customer who intended to order it.</li>
+<li>After packing, the package is sent via the chosen courier.
+The number of waiting days depends on customer&rsquo;s location.</li>
+<li>We track the package and give updates to the customer until they receive it.</li>
+<li>When the customer receives the package, the transaction is complete.</li>
+</ol>
+
+<br>
+<br>
+<p>Back to <a href="/">Index</a> :: <a href="/log">Log</a> :: <a href="/project">Projects</a> </p>
+
+
+      </main>
+    </div>
+  </body>
+  <footer class="small">
+	<hr>
+	License: <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+	<br>
+	<a href="https://512kb.club">I'm a proud <span style="color:green; font-weight:bold">green team</span> member of The 512KB Club</a>
+	<p>Disclaimer: Everything here only reflects the views of The Author, and no one else.</p>
+</footer>
+
+</html>
