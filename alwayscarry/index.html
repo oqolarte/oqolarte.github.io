@@ -20,8 +20,8 @@
 
 <h1>Always Carry A Book Website</h1>
 <div class="small">Last Update:
-<time datetime="Sat Jan 10 17:19:98 2020 &#43;0800">
-  2 Jan 2021
+<time datetime="Sun Jan 10 17:19:98 3030 &#43;0800">
+  3 Jan 2021
 </time>
 </div>
 
@@ -42,6 +42,12 @@
       <ul>
         <li><a href="#customer-side">Customer Side</a></li>
         <li><a href="#dealer-side-we-the-sellers">Dealer Side (<em>we</em>, the sellers)</a></li>
+      </ul>
+    </li>
+    <li><a href="#dropping-content">&lsquo;Dropping&rsquo; Content</a>
+      <ul>
+        <li><a href="#taking-photos">Taking Photos</a></li>
+        <li><a href="#syndication-of-posts">Syndication of Posts</a></li>
       </ul>
     </li>
   </ul>
@@ -68,11 +74,12 @@ One major decision is to use free software services for the time being.</p>
 <p>Of course, the intention is to scale, and add the necessary functions as the business starts raking in the dough.</p>
 <h3 id="landing-page-logo">Landing Page Logo</h3>
 <p>The cat-holding-a-book image is drawn by Isya herself, using Wacom Bamboo Tablet on <a href="https://krita.org">Krita</a>, a free and open source painting program, that&rsquo;s also available in many platforms.</p>
-<p>The image is then compressed and optimized for the web.</p>
+<p>The image, compressed and optimized for the web, shall be the guiding aesthetic of the website.</p>
 <h3 id="payment-gateway">Payment Gateway?</h3>
 <p>It&rsquo;s only natural for an e-commerce site to have a payment method coded in it.
 However, right now, it has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p>
-<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.</p>
+<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.
+In my opinion, these methods, particularly the first two, will reach more people since neither need debit nor credit card to make transactions.</p>
 <p>Google Forms is also used for the customers to fill up when placing their orders.</p>
 <p>For now, this will have to do.</p>
 <h3 id="integration-with-instagram">Integration with Instagram</h3>
@@ -91,7 +98,7 @@ These changes are then committed and pushed to the GitHub repository.
 Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p>
 <h2 id="how-a-transaction-looks-like">How A Transaction Looks Like</h2>
 <p>Here, I outline the processes involved for the customer and the dealer.
-We will look</p>
+This is not final, and obviously needs more thought put into it.</p>
 <h3 id="customer-side">Customer Side</h3>
 <ol>
 <li>Customer browses the book list, and makes a selection.</li>
@@ -101,7 +108,7 @@ Ideally, it arrives within 24 hours.
 When the invoice is confirmed to have been received, this informs the customer that their order is reserved under their name for the next 24 hours.</li>
 <li>Customer pays within 24 hours of receiving the invoice.
 Otherwise, the reservation is revoked, and the order is made available again for the public.</li>
-<li>Once payment is verified, package will be packed and sent.
+<li>Once payment is verified, the order will be packed and sent.
 Customer&rsquo;s waiting duration depends on the delivery option they chose in the Form.</li>
 <li>Customer tracks the package until they receive it.</li>
 <li>Customer receives the package, and the transaction is complete.</li>
@@ -121,6 +128,34 @@ The number of waiting days depends on customer&rsquo;s location.</li>
 <li>We track the package and give updates to the customer until they receive it.</li>
 <li>When the customer receives the package, the transaction is complete.</li>
 </ol>
+<h2 id="dropping-content">&lsquo;Dropping&rsquo; Content</h2>
+<p>The current way involves a lot of friction on our side, to be honest.
+This is one of the drawbacks of going static: doing things &ldquo;manually.&rdquo;</p>
+<p>Let&rsquo;s enumerate the steps:</p>
+<ol>
+<li>The files, mainly photos of books to be sold, live in the laptop&mdash;a MacBook, and are backed up in a OneDrive account.
+The phone can then access the photos via the cloud.</li>
+<li>Alternatively, to save on bandwidth, we can transfer over a USB connection, using <a href="https://www.android.com/filetransfer/">Android File Transfer</a> as the needed middleman.
+The operative word is &ldquo;needed,&rdquo; because one cannot <em>just</em> plug an Android phone into a Mac and be done with it.</li>
+<li>On the phone, images will be uploaded on Instagram.
+Since the IG account is already linked to the FB Page, each post shall simultaneously pop up on both platforms.
+<em>In theory.</em></li>
+<li>Once posted, we will get the photo ID for each IG post.</li>
+<li>Using the ID, we can now embed the IG post on the website, thanks to the workaround mentioned earlier.</li>
+</ol>
+<h3 id="taking-photos">Taking Photos</h3>
+<p>Photo-taking is done during daytime, when we make use of natural light.</p>
+<p>Initially, we used an iPhone to take photos of the books.
+Transferring files between Apple devices (in our case, iPhone and Mac) is easy, using AirDrop.</p>
+<p>However, for reasons that won&rsquo;t be mentioned, the iPhone is sure to be removed from the equation.
+We need to find solutions that don&rsquo;t rely on AirDrop&rsquo;s convenience.</p>
+<p>We have two options left: a digital camera, and an Android phone, the same one where we will be posting on IG.
+For better quality photos, the digital camera is the obvious choice.
+Its SD Card will also fit nicely in one of the Mac&rsquo;s ports.</p>
+<p>The phone&rsquo;s camera will serve as a backup.</p>
+<h3 id="syndication-of-posts">Syndication of Posts</h3>
+<p>If embedding posts from IG would fail somehow in the future, we could just post directly on the website.
+Right now, as mentioned, we focus the content management in IG due to its reach.</p>
 
 <br>
 <br>
@@ -132,9 +167,10 @@ The number of waiting days depends on customer&rsquo;s location.</li>
   </body>
   <footer class="small">
 	<hr>
-	License: <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+	License: <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 	<br>
-	<a href="https://512kb.club">I'm a proud <span style="color:green; font-weight:bold">green team</span> member of The 512KB Club</a>
+	<a href="https://512kb.club"><span style="color:green; font-weight:bold">GREEN TEAM</span> of 512KB Club</a>
+    <br>This site is private (͡° ͜ʖ ͡°) No trackers, no hidden scripts.
 	<p>Disclaimer: Everything here only reflects the views of The Author, and no one else.</p>
 </footer>
 
