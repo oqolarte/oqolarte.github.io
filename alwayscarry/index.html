@@ -10,7 +10,7 @@
   
   	
   
-  <title>Always Carry A Book Website | of somersaulting</title>
+  <title>Always Carry A Book Website | to oblique lair</title>
 </head>
 
   <body>
@@ -20,8 +20,8 @@
 
 <h1>Always Carry A Book Website</h1>
 <div class="small">Last Update:
-<time datetime="Fri Jan 10 17:13:38 8080 &#43;0800">
-  8 Jan 2021
+<time datetime="Mon Jan 10 17:18:88 25250 &#43;0800">
+  25 Jan 2021
 </time>
 </div>
 
@@ -36,6 +36,7 @@
         <li><a href="#payment-gateway">Payment Gateway?</a></li>
         <li><a href="#integration-with-instagram">Integration with Instagram</a></li>
         <li><a href="#hosting-github--netlify">Hosting: GitHub + Netlify</a></li>
+        <li><a href="#search-functionality">Search Functionality</a></li>
       </ul>
     </li>
     <li><a href="#how-a-transaction-looks-like">How A Transaction Looks Like</a>
@@ -96,7 +97,46 @@ The first try, though, it already failed.</p>
 <p>I make the changes (edit, generate the site, etc.) locally, in a laptop.
 These changes are then committed and pushed to the GitHub repository.
 Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p>
-<h2 id="how-a-transaction-looks-like">How A Transaction Looks Like</h2>
+<h3 id="search-functionality">Search Functionality</h3>
+<p>As we upload more content, i.e. more books, the list grows.
+I have added a search bar in the list page to help visitors, using JavaScript.
+This is based on <a href="https://zwbetz.com/add-search-functionality-to-your-blog-listing-page/">zwbetz&rsquo;s tutorial</a>.</p>
+<p>I know I may have implied <a href="/site/#no-javascript">a slight distaste for JavaScript</a>, but since we intend this to be an e-commerce site, we have to be in a different mindset.</p>
+<p>As the user types a letter in the search bar, items with matching string of text remain, incrementally narrowing down the list.</p>
+<p>The JavaScript function is actually an Immediately Invoked Function Expression<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, and it runs as soon as it is defined.</p>
+<p>The JavaScript code can either be wrapped in <code>&lt;script&gt;</code> tags at the end of the HTML page of the book list;
+or it can be separate file, like <code>search.js</code> living in the <code>your-hugo-site/static/js/search.js</code> directory which can then be invoked using Hugo Partials<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
+For posterity, here&rsquo;s the JS code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateCount</span>(<span style="color:#a6e22e">count</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">listCount</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;list-count&#34;</span>);
+    <span style="color:#a6e22e">listCount</span>.<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Count: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">count</span>;
+  }
+
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onEvent</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">toUpperCase</span>();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;list&#34;</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">listItems</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;li&#34;</span>);
+    <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">listItems</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">listItems</span>[<span style="color:#a6e22e">i</span>];
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">innerText</span>.<span style="color:#a6e22e">toUpperCase</span>();
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">text</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">filter</span>) <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+        <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>;
+      } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+      }
+    }
+    <span style="color:#a6e22e">updateCount</span>(<span style="color:#a6e22e">count</span>);
+  }
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">search</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;search&#34;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">search</span>) {
+    <span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;keyup&#34;</span>, <span style="color:#a6e22e">onEvent</span>);
+  }
+})();
+</code></pre></div><h2 id="how-a-transaction-looks-like">How A Transaction Looks Like</h2>
 <p>Here, I outline the processes involved for the customer and the dealer.
 This is not final, and obviously needs more thought put into it.</p>
 <h3 id="customer-side">Customer Side</h3>
@@ -156,6 +196,18 @@ Its SD Card will also fit nicely in one of the Mac&rsquo;s ports.</p>
 <h3 id="syndication-of-posts">Syndication of Posts</h3>
 <p>If embedding posts from IG would fail somehow in the future, we could just post directly on the website.
 Right now, as mentioned, we focus the content management in IG due to its reach.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>For more information, read the <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">Mozilla&rsquo;s explainer</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Partials are smaller, context-aware components in your list and papge templates that can be used economically to keep your templating DRY (&ldquo;Don&rsquo;t Repeat Yourself&rdquo;).
+For more info, <a href="https://gohugo.io/templates/partials/#readout">read the Hugo documentation</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
 <br>
 <br>
