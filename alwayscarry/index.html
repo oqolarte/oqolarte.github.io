@@ -5,13 +5,13 @@
   <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.82.0" />
   
-  <link rel="stylesheet"href="/css/style.css">
+  <link rel="stylesheet"href="https://ohio.araw.xyz/css/style.css">
   <link rel="icon"href="data:">
   
   
   	
   
-  <title>Always Carry A Book Website | to oblique lair</title>
+  <title>Always Carry Website | to oblique lair</title>
 </head>
 
   <body>
@@ -19,10 +19,10 @@
       <main id="main">
        
 
-<h1>Always Carry A Book Website</h1>
+<h1>Always Carry Website</h1>
 <div class="small">Last Update:
-<time datetime="Fri Apr 40 47:47:78 16160 &#43;0800">
-  16 Apr 2021
+<time datetime="Sat Apr 40 47:43:38 24240 &#43;0800">
+  24 Apr 2021
 </time>
 </div>
 
@@ -33,11 +33,10 @@
     <li><a href="#status-on-going">Status: On-going</a></li>
     <li><a href="#design-choices">Design Choices</a>
       <ul>
-        <li><a href="#landing-page-logo">Landing Page Logo</a></li>
-        <li><a href="#payment-gateway">Payment Gateway?</a></li>
+        <li><a href="#landing-page">Landing Page</a></li>
         <li><a href="#integration-with-instagram">Integration with Instagram</a></li>
+        <li><a href="#payment-gateway">Payment Gateway?</a></li>
         <li><a href="#hosting-github--netlify">Hosting: GitHub + Netlify</a></li>
-        <li><a href="#search-functionality">Search Functionality</a></li>
         <li><a href="#just-in-time-preloading">&ldquo;Just-in-time&rdquo; Preloading</a></li>
       </ul>
     </li>
@@ -57,14 +56,13 @@
 </nav></aside>
 </div>
 <h2 class="statusOnGoing" id="status-on-going">Status: On-going</h2>
-<p>My partner asked me to come up with a website to act as a central hub for their recently opened online bookshop.
-This site shall mirror the contents of the shop&rsquo;s other social media presence.</p>
-<p>In the future, it will also be a shop for other household items.</p>
-<p>Visit the site, whose name I also came up with:
-<strong><a href="https://alwayscarry.netlify.app">Always Carry A Book</a></strong></p>
+<p>My partner asked me to come up with a website to act as a central hub for their small online shop.
+The website shall mirror the contents of the shop&rsquo;s other social media presence.</p>
+<p>Visit the site:
+<strong><a href="https://alwayscarry.netlify.app">Always Carry!</a></strong></p>
 <figure>
-    <img src="/image/acabooks.png"
-         alt="screenshot from Always Carry A Book website "/> <figcaption>
+    <img src="/image/alwayscarry.png"
+         alt="screenshot from Always Carry website "/> <figcaption>
             <p>Screenshot from the website</p>
         </figcaption>
 </figure>
@@ -76,16 +74,16 @@ Since I&rsquo;m already familiar with <a href="https://gohugo.io">Hugo</a>, I us
 <p>The business is literally just starting out.
 One major decision is to use free software services for the time being.</p>
 <p>Of course, we intend to scale as business grows.</p>
-<h3 id="landing-page-logo">Landing Page Logo</h3>
-<p>The cat-holding-a-book image is drawn by Isya herself, using Wacom Bamboo Tablet on <a href="https://krita.org">Krita</a>, a free and open source painting program.
+<h3 id="landing-page">Landing Page</h3>
+<p>The cat-holding-a-book logo is drawn by Isya herself, using Wacom Bamboo Tablet on <a href="https://krita.org">Krita</a>, a free and open source painting program.
 It shall be the guiding aesthetic of the website.</p>
-<h3 id="payment-gateway">Payment Gateway?</h3>
-<p>It&rsquo;s only natural for an e-commerce site to have a payment method coded in it.
-However, right now, it has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p>
-<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.
-In my opinion, these methods, particularly the first two, will reach more people since neither need debit nor credit card to make transactions, only a phone that&rsquo;s connected to a GCash account.</p>
-<p>Google Forms is also used for the customers to fill up when placing their orders.</p>
-<p>For now, this will have to do.</p>
+<p>From the Index, the visitor is presented with two links to the two branches of the shop:</p>
+<ul>
+<li>Books</li>
+<li>Home Products</li>
+</ul>
+<p>Each of these are Lists of single pages.
+Each single page is a detailed view of the product via Instagram.</p>
 <h3 id="integration-with-instagram">Integration with Instagram</h3>
 <p>To reach as many people as possible, the shop is also available in Instagram and Facebook.
 Huge chunk of content management will be focused on IG.
@@ -95,49 +93,19 @@ The first try, though, it already failed.</p>
 <p>It turns out, the Instagram shortcode is deprecated since 24 Oct 2020, <a href="https://github.com/gohugoio/hugo/issues/7879">according to this discussion.</a></p>
 <p>Good thing that from that same discussion, <a href="https://github.com/gohugoio/hugo/issues/7879#issuecomment-737149676">monsieurnebo&rsquo;s fix</a> (based on ToniTornado, but with a bit smaller code) got it going for me.</p>
 <p>For the time being, I can use the IG photo&rsquo;s ID to be embedded on the site.</p>
+<h3 id="payment-gateway">Payment Gateway?</h3>
+<p>It&rsquo;s only natural for an e-commerce site to have a payment method coded in it.
+However, right now, it has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p>
+<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.
+In my opinion, these methods, particularly the first two, will reach more people since neither need debit nor credit card to make transactions, only a phone that&rsquo;s connected to a GCash account.</p>
+<p>Google Forms is also used for the customers to fill up when placing their orders.</p>
+<p>For now, this will have to do.</p>
 <h3 id="hosting-github--netlify">Hosting: GitHub + Netlify</h3>
 <p>The source files are on <a href="https://github.com/arawseekers">our GitHub</a>. The HTML files are then deployed to <a href="https://netlify.com">Netlify</a>, another hosting platform.</p>
 <p>I make the changes locally, in a laptop.
 These changes are then committed and pushed to the GitHub repository.
 Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p>
-<h3 id="search-functionality">Search Functionality</h3>
-<p>The list of books for sale fluctuate depending on the sales.
-I have added a search bar in the list page to help visitors look up titles, using JavaScript.
-This is based on <a href="https://zwbetz.com/add-search-functionality-to-your-blog-listing-page/">zwbetz&rsquo;s tutorial</a>.</p>
-<p>As the user types a letter in the search bar, items with matching string of text remain, incrementally narrowing down the list.</p>
-<p>The JS function is actually an Immediately Invoked Function Expression<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, and it runs as soon as it is defined.</p>
-<p>The JS code is wrapped in <code>&lt;script&gt;</code> tags at the end of the HTML page of the book list.
-For posterity, here&rsquo;s the JS code:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">(<span style="color:#007020;font-weight:bold">function</span> () {
-  <span style="color:#007020;font-weight:bold">function</span> updateCount(count) {
-    <span style="color:#007020;font-weight:bold">var</span> listCount <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#34;list-count&#34;</span>);
-    listCount.innerText <span style="color:#666">=</span> <span style="color:#4070a0">&#34;Count: &#34;</span> <span style="color:#666">+</span> count;
-  }
-
-  <span style="color:#007020;font-weight:bold">function</span> onEvent() {
-    <span style="color:#007020;font-weight:bold">var</span> count <span style="color:#666">=</span> <span style="color:#40a070">0</span>;
-    <span style="color:#007020;font-weight:bold">var</span> filter <span style="color:#666">=</span> search.value.toUpperCase();
-    <span style="color:#007020;font-weight:bold">var</span> list <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#34;list&#34;</span>);
-    <span style="color:#007020;font-weight:bold">var</span> listItems <span style="color:#666">=</span> list.getElementsByTagName(<span style="color:#4070a0">&#34;li&#34;</span>);
-    <span style="color:#007020;font-weight:bold">for</span> (i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> listItems.length; i<span style="color:#666">++</span>) {
-      <span style="color:#007020;font-weight:bold">var</span> item <span style="color:#666">=</span> listItems[i];
-      <span style="color:#007020;font-weight:bold">var</span> text <span style="color:#666">=</span> item.innerText.toUpperCase();
-      <span style="color:#007020;font-weight:bold">if</span> (text.indexOf(filter) <span style="color:#666">&gt;</span> <span style="color:#666">-</span><span style="color:#40a070">1</span>) {
-        item.style.display <span style="color:#666">=</span> <span style="color:#4070a0">&#34;&#34;</span>;
-        count<span style="color:#666">++</span>;
-      } <span style="color:#007020;font-weight:bold">else</span> {
-        item.style.display <span style="color:#666">=</span> <span style="color:#4070a0">&#34;none&#34;</span>;
-      }
-    }
-    updateCount(count);
-  }
-
-  <span style="color:#007020;font-weight:bold">var</span> search <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#34;search&#34;</span>);
-  <span style="color:#007020;font-weight:bold">if</span> (search) {
-    search.addEventListener(<span style="color:#4070a0">&#34;keyup&#34;</span>, onEvent);
-  }
-})();
-</code></pre></div><h3 id="just-in-time-preloading">&ldquo;Just-in-time&rdquo; Preloading</h3>
+<h3 id="just-in-time-preloading">&ldquo;Just-in-time&rdquo; Preloading</h3>
 <p>Improving user experience might just be the key to a successful small online shop.
 Who knows?</p>
 <p><a href="https://instant.page">Instant.Page</a> claims to make the site&rsquo;s pages instant by preloading a page right before a user clicks it.
@@ -205,14 +173,6 @@ Its SD Card will also fit nicely in one of the Mac&rsquo;s ports.</p>
 <h3 id="syndication-of-posts">Syndication of Posts</h3>
 <p>If embedding posts from IG would fail somehow in the future, we could just post directly on the website.
 Right now, as mentioned, we focus the content management in IG due to its reach.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>For more information, read the <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">Mozilla&rsquo;s explainer</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
 
 <br>
 <br>

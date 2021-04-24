@@ -5,7 +5,7 @@
   <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.82.0" />
   
-  <link rel="stylesheet"href="/css/style.css">
+  <link rel="stylesheet"href="https://ohio.araw.xyz/css/style.css">
   <link rel="icon"href="data:">
   
   
@@ -21,8 +21,8 @@
 
 <h1>Own Web Server</h1>
 <div class="small">Last Update:
-<time datetime="Fri Apr 40 47:47:78 16160 &#43;0800">
-  16 Apr 2021
+<time datetime="Thu Apr 40 47:47:78 22220 &#43;0800">
+  22 Apr 2021
 </time>
 </div>
 
@@ -131,18 +131,18 @@ Their <a href="https://man.openbsd.org">manual pages</a> contain the details nee
 <p>There are mirrors<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> from which you can download the installer.
 They are found <a href="https://www.openbsd.org/ftp.html">here</a>.
 Always choose the one nearest your location to reduce download time.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -OJ http://mirror.rise.ph/pub/OpenBSD/6.8/i386/install68.img
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -OJ http://mirror.rise.ph/pub/OpenBSD/6.8/i386/install68.img
 </code></pre></div><h3 id="2-create-install-media-in-flash-drive">2. Create Install Media in Flash Drive</h3>
 <p>Plug in the USB stick.
 The following command assumes that the disk is recognized as <code>sdc1</code>.
 Check with <code>dmesg</code>, <code>df -h</code>, or <code>lsblk</code> commands, as root if need be.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dd <span style="color:#007020;font-weight:bold">if</span><span style="color:#666">=</span>install*.img <span style="color:#bb60d5">of</span><span style="color:#666">=</span>/dev/sdc1 <span style="color:#bb60d5">bs</span><span style="color:#666">=</span>1M
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>install*.img of<span style="color:#f92672">=</span>/dev/sdc1 bs<span style="color:#f92672">=</span>1M
 </code></pre></div><p>The <code>dd</code> utility copies the standard input <code>if</code> (or input file) to the standard output <code>of</code> (or output file, which, in this case, is the USB drive).
 <code>bs</code> stands for block size, and we set it to 1 megabyte.</p>
 <p>In my case, the successful output is:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">450+0 records in
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">450+0 records in
 450+0 records out
-<span style="color:#40a070">471859200</span> bytes <span style="color:#666">(</span><span style="color:#40a070">472</span> MB, <span style="color:#40a070">450</span> MiB<span style="color:#666">)</span> copied, 31.9492 s, 14.8 MB/s
+<span style="color:#ae81ff">471859200</span> bytes <span style="color:#f92672">(</span><span style="color:#ae81ff">472</span> MB, <span style="color:#ae81ff">450</span> MiB<span style="color:#f92672">)</span> copied, 31.9492 s, 14.8 MB/s
 </code></pre></div><h3 id="3-proceed-with-the-installation">3. Proceed with the Installation.</h3>
 <p>Insert the USB drive into the machine.
 Boot from the USB drive.</p>
@@ -158,11 +158,11 @@ Directory does not contain SHA256.sig. Continue without verification? <strong>ye
 <p>Reboot after installation.</p>
 <p>Then login as root.</p>
 <h4 id="enable-apmd8">Enable <code>apmd(8)</code></h4>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rcctl <span style="color:#007020">enable</span> apmd
-rcctl <span style="color:#007020">set</span> apmd flags -a -z <span style="color:#40a070">7</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rcctl enable apmd
+rcctl set apmd flags -a -z <span style="color:#ae81ff">7</span>
 rcctl start apmd
 </code></pre></div><h4 id="add-username-to-etcdoasconf">Add username to <code>/etc/doas.conf</code></h4>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#007020">echo</span> <span style="color:#4070a0">&#39;permit yourUserName&#39;</span> &gt; /etc/doas.conf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo <span style="color:#e6db74">&#39;permit yourUserName&#39;</span> &gt; /etc/doas.conf
 </code></pre></div><p>Reboot to make the changes.</p>
 <h3 id="set-up-wi-fi-and-ethernet-networks">Set up wi-fi and ethernet networks</h3>
 <p>Before doing anything else, we need to make sure that we are connected to the internet.
@@ -174,28 +174,28 @@ It&rsquo;s reliable and secure.</p>
 <p>Network interfaces are named by taking the shorthand version of the network card.</p>
 <p>This laptop has <code>re(4)</code>, i.e. Realtek 8139C+/8169/816xS/811xS/8168/810xE 10/100/Gigabit Ethernet device.</p>
 <p>To set it up, create a file <code>/etc/hostname.re0</code> using vi<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, and put these two lines in:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dhcp
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dhcp
 up
 </code></pre></div><p>To make the file <code>/etc/hostname.re0</code> belong to the <code>root</code> (the super user) and <code>wheel</code>, and to set the necessary permissions, enter these commands as root:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.re0
-chmod <span style="color:#40a070">0640</span> /etc/hostname.re0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.re0
+chmod <span style="color:#ae81ff">0640</span> /etc/hostname.re0
 </code></pre></div><p>Activate the ethernet connection by entering this as root:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh /etc/netstart
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh /etc/netstart
 </code></pre></div><p>If successful, it&rsquo;s possible now to update the firmwares, so you can use, among other things, the wifi.
 Enter as root:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fw_update
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fw_update
 </code></pre></div><h4 id="wi-fi">Wi-fi</h4>
 <p>This laptop has wi-fi capabilities, but isn&rsquo;t immediately compatible due to firmware issues.
 As just mentioned, firmware can be updated by <code>fw_update</code> if you&rsquo;re already connected to the internet via ethernet.
 But if that&rsquo;s unsuccessful for some reason, skip to the next section to get the firmware updates.</p>
 <p>This laptop has <code>ath(4)</code>, i.e. Atheros IEEE 802.11a/b/g wireless network device with GPIO.</p>
 <p>To set up the wifi, create a file <code>etc/hostname.athn0</code> as root and input these following lines:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nwid myHomeWiFi wpakey p@s&amp;w0rD
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nwid myHomeWiFi wpakey p@s&amp;w0rD
 dhcp
 up
 </code></pre></div><p>Like with the ethernet, specify that the file belongs to <code>root</code> and <code>wheel</code>, set the permissions, and activate the connection by entering the following lines, as root:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.athn0
-chmod <span style="color:#40a070">0640</span> /etc/hostname.athn0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.athn0
+chmod <span style="color:#ae81ff">0640</span> /etc/hostname.athn0
 
 sh /etc/netstart
 </code></pre></div><h4 id="installing-the-needed-firmware-from-another-device">Installing the needed firmware (from another device)</h4>
@@ -215,26 +215,26 @@ Download the firmware files in your list to a USB drive <strong>formatted as FAT
 <ol>
 <li>There are different ways you can format a USB drive to FAT32, depending on the platform you&rsquo;re doing the formatting on.
 If you&rsquo;re on a Debian-based system like I am, install the <em>dosfstools</em>.
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install dosfstools
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install dosfstools
 </code></pre></div></li>
 <li>Locate your USB drive by running this in terminal:
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lsblk
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lsblk
 </code></pre></div><p>In my case, it&rsquo;s <code>/dev/sdc</code> .</p>
 </li>
 <li>Unmount the USB drive, because we can&rsquo;t format it when mounted:
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo umount /dev/sdc
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo umount /dev/sdc
 </code></pre></div></li>
 <li>Create a new partition table, which we will determine to be <code>msdos</code>.
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script -- mklabel msdos
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script -- mklabel msdos
 </code></pre></div></li>
 <li>Specify that the whole drive must be of FAT32 file system, primary partition type:
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdb --script -- mkpart primary fat32 1MiB 100%
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdb --script -- mkpart primary fat32 1MiB 100%
 </code></pre></div></li>
 <li>Format the drive to FAT32:
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkfs.fat -F <span style="color:#40a070">32</span> -I /dev/sdc
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkfs.fat -F <span style="color:#ae81ff">32</span> -I /dev/sdc
 </code></pre></div></li>
 <li>(Optional) Check if your device has been partitioned correctly:
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script print
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script print
 </code></pre></div></li>
 </ol>
 </li>
@@ -252,7 +252,7 @@ Your USB drive will appear to have several partitions, e.g. sd1c.</li>
 <h3 id="optional-things">Optional things</h3>
 <p>In this laptop, I&rsquo;m going install several binaries from the ports, namely <strong>git</strong> (version control system), and <strong>neovim</strong> (text editor).
 To install in one go, enter as root:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkg_add git neovim 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkg_add git neovim 
 </code></pre></div><h2 id="web-server-on-openbsd">Web Server on OpenBSD</h2>
 <p>Now we&rsquo;re at the heart of this project:
 to make this old laptop a working server for this site.
