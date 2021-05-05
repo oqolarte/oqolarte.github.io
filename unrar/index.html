@@ -5,9 +5,10 @@ But said file is compressed into <code>.rar</code>.</p><p>According to the Debia
 I don&rsquo;t deal with that.</p><p>So here&rsquo;s my workaround.
 The following assumes you<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> have a Debian-like Linux 64-bit distro,
 and are comfortable with the terminal.</p><h2 id=my-unrar-workaround>My UnRAR Workaround</h2><ol><li>Get RAR archiver from <a href=https://www.rarlab.com/download.htm>RARLAB Archiver</a>.
-You can either:<ul><li>Go their website, and click on the link that matches your system; or</li><li>Enter in the terminal:</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -LO https://www.rarlab.com/rar/rarlinux-x64-*.tar.gz
-</code></pre></div></li><li>Go to the folder where it got downloaded to.
-Use <code>tar</code> to extract the files<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>tar -xvzf rarlinux-x64-*.tar.gz
+You can either:<ul><li>Go their website, and click on the link that matches your system; or</li><li>Enter in the terminal:</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -LO https://www.rarlab.com/rar/rarlinux-x64-6.0.1.tar.gz
+</code></pre></div><p>Note that at the time of writing, the current version is <code>6.0.1</code>.
+Be sure to check the site for latest updates.</p></li><li>Go to the folder where it got downloaded to.
+Use <code>tar</code> to extract the files<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>tar -xvzf rarlinux-x64-6.0.1.tar.gz
 </code></pre></div><p><code>-x</code> option means extracts the file/s from tar<br><code>-v</code> option means verbose, to see the extraction progress<br><code>-z</code> option decompresses all the files within, if any<br><code>-f</code> option indicates the filename you&rsquo;ll work on</p></li><li>Go into the extracted folder.
 It should have a <code>Makefile</code>, <code>rar</code> and <code>unrar</code> executables, among other files.
 Run <code>make</code> like so:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd rar/
