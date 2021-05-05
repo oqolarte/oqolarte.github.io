@@ -1,201 +1,44 @@
-<!doctype html>
-<html lang="en">
-	<head>
-  <meta charset="utf-8">
-  <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.83.1" />
-  
-  <link rel="stylesheet"href="https://ohio.araw.xyz/css/style.css">
-  <link rel="icon"href="data:">
-  
-  
-  	
-  
-  <title>Always Carry Website | to oblique lair</title>
-</head>
-
-  <body>
-    <div class="container">
-      <main id="main">
-       
-
-<h1>Always Carry Website</h1>
-<div class="small">Last Update:
-<time datetime="Sat Apr 40 47:43:38 24240 &#43;0800">
-  24 Apr 2021
-</time>
-</div>
-
-<div>
-	<h4>Table of Contents</h4>
-	<aside class="small"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#status-on-going">Status: On-going</a></li>
-    <li><a href="#design-choices">Design Choices</a>
-      <ul>
-        <li><a href="#landing-page">Landing Page</a></li>
-        <li><a href="#integration-with-instagram">Integration with Instagram</a></li>
-        <li><a href="#payment-gateway">Payment Gateway?</a></li>
-        <li><a href="#hosting-github--netlify">Hosting: GitHub + Netlify</a></li>
-        <li><a href="#just-in-time-preloading">&ldquo;Just-in-time&rdquo; Preloading</a></li>
-      </ul>
-    </li>
-    <li><a href="#how-a-transaction-looks-like">How A Transaction Looks Like</a>
-      <ul>
-        <li><a href="#customer-side">Customer Side</a></li>
-        <li><a href="#dealer-side-we-the-sellers">Dealer Side (<em>we</em>, the sellers)</a></li>
-      </ul>
-    </li>
-    <li><a href="#dropping-content">&lsquo;Dropping&rsquo; Content</a>
-      <ul>
-        <li><a href="#taking-photos">Taking Photos</a></li>
-        <li><a href="#syndication-of-posts">Syndication of Posts</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></aside>
-</div>
-<h2 class="statusOnGoing" id="status-on-going">Status: On-going</h2>
-<p>My partner asked me to come up with a website to act as a central hub for their small online shop.
-The website shall mirror the contents of the shop&rsquo;s other social media presence.</p>
-<p>Visit the site:
-<strong><a href="https://alwayscarry.netlify.app">Always Carry!</a></strong></p>
-<figure><img src="/image/alwayscarry.png"
-         alt="screenshot from Always Carry website "/><figcaption>
-            <p>Screenshot from the website</p>
-        </figcaption>
-</figure>
-
-<h2 id="design-choices">Design Choices</h2>
-<p>I figured that since this would just be a small online shop, a full-blown e-commerce site with lots of features is unnecessary.
-Having this in mind, I decided that a static site would do for now.
-Since I&rsquo;m already familiar with <a href="https://gohugo.io">Hugo</a>, I use it as my static site generator.</p>
-<p>The business is literally just starting out.
-One major decision is to use free software services for the time being.</p>
-<p>Of course, we intend to scale as business grows.</p>
-<h3 id="landing-page">Landing Page</h3>
-<p>The cat-holding-a-book logo is drawn by Isya herself, using Wacom Bamboo Tablet on <a href="https://krita.org">Krita</a>, a free and open source painting program.
-It shall be the guiding aesthetic of the website.</p>
-<p>From the Index, the visitor is presented with two links to the two branches of the shop:</p>
-<ul>
-<li>Books</li>
-<li>Home Products</li>
-</ul>
-<p>Each of these are Lists of single pages.
-Each single page is a detailed view of the product via Instagram.</p>
-<h3 id="integration-with-instagram">Integration with Instagram</h3>
-<p>To reach as many people as possible, the shop is also available in Instagram and Facebook.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://ohio.araw.xyz/css/style.css><link rel=icon href=data:><title>Always Carry Website | to oblique lair</title></head><body><div class=container><main id=main><h1>Always Carry Website</h1><div class=small>Last Update:
+<time datetime="Wed May 50 57:56:68 5050 +0800">5 May 2021</time></div><div><h4>Table of Contents</h4><aside class=small><nav id=TableOfContents><ul><li><a href=#status-on-going>Status: On-going</a></li><li><a href=#design-choices>Design Choices</a><ul><li><a href=#landing-page>Landing Page</a></li><li><a href=#integration-with-instagram>Integration with Instagram</a></li><li><a href=#payment-gateway>Payment Gateway?</a></li><li><a href=#hosting-github--netlify>Hosting: GitHub + Netlify</a></li><li><a href=#just-in-time-preloading>&ldquo;Just-in-time&rdquo; Preloading</a></li></ul></li><li><a href=#how-a-transaction-looks-like>How A Transaction Looks Like</a><ul><li><a href=#customer-side>Customer Side</a></li><li><a href=#dealer-side-we-the-sellers>Dealer Side (<em>we</em>, the sellers)</a></li></ul></li><li><a href=#dropping-content>&lsquo;Dropping&rsquo; Content</a><ul><li><a href=#taking-photos>Taking Photos</a></li><li><a href=#syndication-of-posts>Syndication of Posts</a></li></ul></li></ul></nav></aside></div><h2 class=statusOnGoing id=status-on-going>Status: On-going</h2><p>My partner asked me to come up with a website to act as a central hub for their small online shop.
+The website shall mirror the contents of the shop&rsquo;s other social media presence.</p><p>Visit the site:
+<strong><a href=https://alwayscarry.netlify.app>Always Carry!</a></strong></p><figure><img src=/image/alwayscarry.png alt="screenshot from Always Carry website "><figcaption><p>Screenshot from the website</p></figcaption></figure><p>Essentially, this is a static online shop with limited functionalities.
+Let me explain.</p><h2 id=design-choices>Design Choices</h2><p>I thought of going through this project with as few components as possible.
+Creating this minimum viable product raises the question,
+&ldquo;What is the simplest possible implementation for setting up a static online shop?&rdquo;</p><p>Since I&rsquo;m already familiar with <a href=https://gohugo.io>Hugo</a>, I use it as my static site generator.</p><p>The business is literally just starting out.
+One major decision is to use free and/or open source software services for the time being.</p><p>Of course, we intend to scale as business grows.</p><h3 id=landing-page>Landing Page</h3><p>The cat-holding-a-book logo is drawn by my partner, Isya herself, using Wacom Bamboo Tablet on <a href=https://krita.org>Krita</a>, a free and open source painting program.
+It is the guiding aesthetic of the website.</p><p>From the Index, the visitor is presented with two links to the two branches of the shop:</p><ul><li>Books</li><li>Home Products</li></ul><p>Each of these are Lists of single pages.
+Each single page is an embedded Instagram page including the details of the product.</p><h3 id=integration-with-instagram>Integration with Instagram</h3><p>To reach as many people as possible, the shop is also available in Instagram and Facebook.
 Huge chunk of content management will be focused on IG.
-Each post will then appear on the Facebook Page, and on the website.</p>
-<p>I had a brilliant idea to use Hugo&rsquo;s native integration with Instagram through their API, according to <a href="https://gohugo.io/content-management/shortcodes/#instagram">Hugo&rsquo;s documentation</a>.
-The first try, though, it already failed.</p>
-<p>It turns out, the Instagram shortcode is deprecated since 24 Oct 2020, <a href="https://github.com/gohugoio/hugo/issues/7879">according to this discussion.</a></p>
-<p>Good thing that from that same discussion, <a href="https://github.com/gohugoio/hugo/issues/7879#issuecomment-737149676">monsieurnebo&rsquo;s fix</a> (based on ToniTornado, but with a bit smaller code) got it going for me.</p>
-<p>For the time being, I can use the IG photo&rsquo;s ID to be embedded on the site.</p>
-<h3 id="payment-gateway">Payment Gateway?</h3>
-<p>It&rsquo;s only natural for an e-commerce site to have a payment method coded in it.
-However, right now, it has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p>
-<p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.
-In my opinion, these methods, particularly the first two, will reach more people since neither need debit nor credit card to make transactions, only a phone that&rsquo;s connected to a GCash account.</p>
-<p>Google Forms is also used for the customers to fill up when placing their orders.</p>
-<p>For now, this will have to do.</p>
-<h3 id="hosting-github--netlify">Hosting: GitHub + Netlify</h3>
-<p>The source files are on <a href="https://github.com/arawseekers">our GitHub</a>. The HTML files are then deployed to <a href="https://netlify.com">Netlify</a>, another hosting platform.</p>
-<p>I make the changes locally, in a laptop.
+Each post will then appear on the Facebook Page, and on the website.</p><p>I had a brilliant idea to use Hugo&rsquo;s native integration with Instagram through their API, according to <a href=https://gohugo.io/content-management/shortcodes/#instagram>Hugo&rsquo;s documentation</a>.
+The first try, though, it already failed.</p><p>It turns out, the Instagram shortcode is deprecated since 24 Oct 2020, <a href=https://github.com/gohugoio/hugo/issues/7879>according to this discussion.</a></p><p>Good thing that from that same discussion, <a href=https://github.com/gohugoio/hugo/issues/7879#issuecomment-737149676>monsieurnebo&rsquo;s fix</a> (based on ToniTornado, but with a bit smaller code) got it going for me.</p><p>For the time being, I can use the IG photo&rsquo;s ID to be embedded on the site.</p><h3 id=payment-gateway>Payment Gateway?</h3><p>Today, it&rsquo;s expected for an e-commerce site to have a payment method coded in it.
+However, right now, ours has no integrated payment gateways like PayPal, Stripe, or others, in the site.</p><p>Payment will be made in &ldquo;less convenient&rdquo; ways, by employing other known services like GCash, PayMaya, and the traditional Bank Transfer.
+In my opinion, these methods, particularly the first two, will reach more people since neither need debit nor credit card to make transactions, only a phone that&rsquo;s connected to a GCash account.</p><p>Google Forms is also used for the customers to fill up when placing their orders.
+We noticed, though, that this is underutilized.
+People prefer to directly message the shop via FB messenger or IG chat.</p><h3 id=hosting-github--netlify>Hosting: GitHub + Netlify</h3><p>The source files are on <a href=https://github.com/arawseekers>our GitHub</a> (pull requests welcome!).
+The HTML files are then deployed to and statically hosted at <a href=https://netlify.com>Netlify</a>,
+another hosting platform.</p><p>I make the changes locally, in a laptop.
 These changes are then committed and pushed to the GitHub repository.
-Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p>
-<h3 id="just-in-time-preloading">&ldquo;Just-in-time&rdquo; Preloading</h3>
-<p>Improving user experience might just be the key to a successful small online shop.
-Who knows?</p>
-<p><a href="https://instant.page">Instant.Page</a> claims to make the site&rsquo;s pages instant by preloading a page right before a user clicks it.
-Bandwidth-wise, this should only have small effects on the user, since by design, the pages of <strong>Always Carry</strong> are already lightweight.</p>
-<p>According to the Instant.Page, uBlock Origin blocks it.
-The author explains how to <a href="https://instant.page/tech#self-hosting">self-host the script</a>, and so I did just that, because I use uBlock Origin.</p>
-<h2 id="how-a-transaction-looks-like">How A Transaction Looks Like</h2>
-<p>Here, I outline the processes involved for the customer and the dealer.
-This is not final as we streamline further.</p>
-<h3 id="customer-side">Customer Side</h3>
-<ol>
-<li>Customer browses the book list, and makes a selection.</li>
-<li>Customer fills up the Form, giving us the needed details of the order.</li>
-<li>Customer waits for the invoice.
+Finally, I have set up Netlify to detect the changes from the repository, and the site is deployed for public viewing.</p><h3 id=just-in-time-preloading>&ldquo;Just-in-time&rdquo; Preloading</h3><p>Improving user experience might just be the key to a successful small online shop.
+Who knows?</p><p><a href=https://instant.page>Instant.Page</a> claims to make the site&rsquo;s pages instant by preloading a page right before a user clicks it.
+Bandwidth-wise, this should only have small effects on the user, since by design, the pages of <strong>Always Carry</strong> are already lightweight.</p><p>According to the Instant.Page, uBlock Origin blocks it.
+The author explains how to <a href=https://instant.page/tech#self-hosting>self-host the script</a>, and so I did just that, because I use uBlock Origin.</p><h2 id=how-a-transaction-looks-like>How A Transaction Looks Like</h2><p>Here, I outline the processes involved for the customer and the dealer.
+This is not final as we streamline further.</p><h3 id=customer-side>Customer Side</h3><ol><li>Customer browses the book list, and makes a selection.</li><li>Customer fills up the Form, giving us the needed details of the order.</li><li>Customer waits for the invoice.
 Ideally, it arrives within 24 hours.
-When the invoice is confirmed to have been received, this informs the customer that their order is reserved under their name for the next 24 hours.</li>
-<li>Customer pays within 24 hours of receiving the invoice.
-Otherwise, the reservation is revoked, and the order is made available again for the public.</li>
-<li>Once payment is verified, the order will be packed and sent.
-Customer&rsquo;s waiting duration depends on the delivery option they chose in the Form.</li>
-<li>Customer tracks the package until they receive it.</li>
-<li>Customer receives the package, and the transaction is complete.</li>
-</ol>
-<h3 id="dealer-side-we-the-sellers">Dealer Side (<em>we</em>, the sellers)</h3>
-<ol>
-<li>We check the Google Form at least once a day for any orders made.
-We also check our other inboxes (Facebook, Instagram, and Gmail) for any inquiries people might have for us.</li>
-<li>We will process orders in a first-come-first-serve basis.
-This means that an order will be given to the next one in line if the one before failed to pay within 24 hours.</li>
-<li>We send the invoice to the customer.
-This will also let them know that the order is reserved under their name for the next 24 hours.</li>
-<li>If payment is made, we will start packing.
-Else, as mentioned, it is made available again, or is given to the next customer who intended to order it.</li>
-<li>After packing, the package is sent via the chosen courier.
-The number of waiting days depends on customer&rsquo;s location.</li>
-<li>We track the package and give updates to the customer until they receive it.</li>
-<li>When the customer receives the package, the transaction is complete.</li>
-</ol>
-<h2 id="dropping-content">&lsquo;Dropping&rsquo; Content</h2>
-<p>In e-commerce jargon, &ldquo;dropping&rdquo; means putting up new items in the shop.</p>
-<p>The current way involves a lot of friction on our side, to be honest.
-This is one of the drawbacks of going static: doing things &ldquo;manually.&rdquo;</p>
-<p>Let&rsquo;s enumerate the steps:</p>
-<ol>
-<li>The files, mainly photos of books to be sold, live in the laptop&mdash;a MacBook, and are backed up in a OneDrive account.
-The phone can then access the photos via the cloud.</li>
-<li>Alternatively, to save on bandwidth, we can transfer over a USB connection, using <a href="https://www.android.com/filetransfer/">Android File Transfer</a> as the needed middleman.
-The operative word is &ldquo;needed,&rdquo; because one cannot <em>just</em> plug an Android phone into a Mac and be done with it.</li>
-<li>On the phone, images will be uploaded on Instagram.
+When the invoice is confirmed to have been received, this informs the customer that their order is reserved under their name for the next 24 hours.</li><li>Customer pays within 24 hours of receiving the invoice.
+Otherwise, the reservation is revoked, and the order is made available again for the public.</li><li>Once payment is verified, the order will be packed and sent.
+Customer&rsquo;s waiting duration depends on the delivery option they chose in the Form.</li><li>Customer tracks the package until they receive it.</li><li>Customer receives the package, and the transaction is complete.</li></ol><h3 id=dealer-side-we-the-sellers>Dealer Side (<em>we</em>, the sellers)</h3><ol><li>We check the Google Form at least once a day for any orders made.
+We also check our other inboxes (Facebook, Instagram, and Gmail) for any inquiries people might have for us.</li><li>We will process orders in a first-come-first-serve basis.
+This means that an order will be given to the next one in line if the one before failed to pay within 24 hours.</li><li>We send the invoice to the customer.
+This will also let them know that the order is reserved under their name for the next 24 hours.</li><li>If payment is made, we will start packing.
+Else, as mentioned, it is made available again, or is given to the next customer who intended to order it.</li><li>After packing, the package is sent via the chosen courier.
+The number of waiting days depends on customer&rsquo;s location.</li><li>We track the package and give updates to the customer until they receive it.</li><li>When the customer receives the package, the transaction is complete.</li></ol><h2 id=dropping-content>&lsquo;Dropping&rsquo; Content</h2><p>In e-commerce jargon, &ldquo;dropping&rdquo; means putting up new items in the shop.</p><p>The current way involves a lot of friction on our side, to be honest.
+This is one of the drawbacks of going static: doing things &ldquo;manually.&rdquo;</p><p>Let&rsquo;s enumerate the steps:</p><ol><li>The files, mainly photos of books to be sold, live in the laptop&mdash;a MacBook, and are backed up in a OneDrive account.
+The phone can then access the photos via the cloud.</li><li>Alternatively, to save on bandwidth, we can transfer over a USB connection, using <a href=https://www.android.com/filetransfer/>Android File Transfer</a> as the needed middleman.
+The operative word is &ldquo;needed,&rdquo; because one cannot <em>just</em> plug an Android phone into a Mac and be done with it.</li><li>On the phone, images will be uploaded on Instagram.
 Since the IG account is already linked to the FB Page, each post shall simultaneously pop up on both platforms.
-<em>In theory.</em></li>
-<li>Once posted, we will get the photo ID for each IG post.</li>
-<li>Using the ID, we can now embed the IG post on the website, thanks to the workaround mentioned earlier.</li>
-</ol>
-<h3 id="taking-photos">Taking Photos</h3>
-<p>Photo-taking is done during daytime, when we make use of natural light.</p>
-<p>Initially, we used an iPhone to take photos of the books.
-Transferring files between Apple devices (in our case, iPhone and Mac) is easy, using AirDrop.</p>
-<p>However, the iPhone is no longer available in this operation.
-We need solutions that don&rsquo;t rely on AirDrop&rsquo;s convenience.</p>
-<p>We have two options left: a digital camera, and an Android phone, the same one where we will be posting on IG.
+<em>In theory.</em></li><li>Once posted, we will get the photo ID for each IG post.</li><li>Using the ID, we can now embed the IG post on the website, thanks to the workaround mentioned earlier.</li></ol><h3 id=taking-photos>Taking Photos</h3><p>Photo-taking is done during daytime, when we make use of natural light.</p><p>Initially, we used an iPhone to take photos of the books.
+Transferring files between Apple devices (in our case, iPhone and Mac) is easy, using AirDrop.</p><p>However, the iPhone is no longer available in this operation.
+We need solutions that don&rsquo;t rely on AirDrop&rsquo;s convenience.</p><p>We have two options left: a digital camera, and an Android phone, the same one where we will be posting on IG.
 For better quality photos, the digital camera is the obvious choice.
-Its SD Card will also fit nicely in one of the Mac&rsquo;s ports.</p>
-<p>The phone&rsquo;s camera will serve as a backup.</p>
-<h3 id="syndication-of-posts">Syndication of Posts</h3>
-<p>If embedding posts from IG would fail somehow in the future, we could just post directly on the website.
-Right now, as mentioned, we focus the content management in IG due to its reach.</p>
-
-<br>
-<br>
-<br>
-
-<p>
-Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#x2024;xyz</code><br>
-Helpful? Consider <a href="/support">supporting me</a>.<br>
-</p>
-<p>
-Back to 🏠<a href="/">Index</a> :: 📋<a href="/log">Log</a> :: 📚<a href="/project">Projects</a>
-</p>
-
-
-      </main>
-    </div>
-  </body>
-  <footer class="small">
-	<hr>
-	Everything is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" >CC BY-SA 4.0</a>
-	<br>
-	<a href="https://512kb.club"><span style="color:green; font-weight:bold">GREEN TEAM</span> of 512KB Club</a>
-    <br>This site is private 😏 No cookies, scripts, trackers, and analytics.
-    <br>Read the <a href="/disclaimer/">disclaimer</a>.
-</footer>
-
-</html>
+Its SD Card will also fit nicely in one of the Mac&rsquo;s ports.</p><p>The phone&rsquo;s camera will serve as a backup.</p><h3 id=syndication-of-posts>Syndication of Posts</h3><p>If embedding posts from IG would fail somehow in the future, we could just post directly on the website.
+Right now, as mentioned, we focus the content management in IG due to its reach.</p><br><br><br><p>Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#8228;xyz</code><br>Helpful? Consider <a href=/support>supporting me</a>.<br></p><p>Back to 🏠<a href=/>Index</a> :: 📋<a href=/log>Log</a> :: 📚<a href=/project>Projects</a></p></main></div></body><footer class=small><hr>Everything is licensed under <a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a><br><a href=https://250kb.club>Member of 250KB Club</a><br>This site is private 😏 No cookies, scripts, trackers, and analytics.<br>Read the <a href=/disclaimer/>disclaimer</a>.</footer></html>

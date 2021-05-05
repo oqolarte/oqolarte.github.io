@@ -1,311 +1,118 @@
-<!doctype html>
-<html lang="en">
-	<head>
-  <meta charset="utf-8">
-  <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.83.1" />
-  
-  <link rel="stylesheet"href="https://ohio.araw.xyz/css/style.css">
-  <link rel="icon"href="data:">
-  
-  
-  	
-  
-  <title>Own Web Server | to oblique lair</title>
-</head>
-
-  <body>
-    <div class="container">
-      <main id="main">
-       
-
-<h1>Own Web Server</h1>
-<div class="small">Last Update:
-<time datetime="Thu Apr 40 47:47:78 22220 &#43;0800">
-  22 Apr 2021
-</time>
-</div>
-
-<div>
-	<h4>Table of Contents</h4>
-	<aside class="small"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#status-on-going">Status: On-going</a></li>
-    <li><a href="#specifications-of-the-machine">Specifications of the Machine</a>
-      <ul>
-        <li><a href="#its-old">It&rsquo;s old&hellip;</a></li>
-        <li><a href="#-but-works-fine">&hellip; but works fine.</a></li>
-      </ul>
-    </li>
-    <li><a href="#a-suitable-operating-system">A suitable operating system</a>
-      <ul>
-        <li><a href="#using-openbsd-as-a-server">Using OpenBSD as a server</a></li>
-      </ul>
-    </li>
-    <li><a href="#installing-openbsd-on-bare-metal">Installing OpenBSD on bare metal</a>
-      <ul>
-        <li><a href="#1-download-the-installer">1. Download the installer</a></li>
-        <li><a href="#2-create-install-media-in-flash-drive">2. Create Install Media in Flash Drive</a></li>
-        <li><a href="#3-proceed-with-the-installation">3. Proceed with the Installation.</a></li>
-        <li><a href="#set-up-wi-fi-and-ethernet-networks">Set up wi-fi and ethernet networks</a></li>
-        <li><a href="#optional-things">Optional things</a></li>
-      </ul>
-    </li>
-    <li><a href="#web-server-on-openbsd">Web Server on OpenBSD</a>
-      <ul>
-        <li><a href="#configure-httpd">Configure httpd</a></li>
-        <li><a href="#enable-https-with-acme-client1-and-lets-encrypt">Enable HTTPS with acme-client(1) and Let&rsquo;s Encrypt</a></li>
-        <li><a href="#add-http-security-headers-with-relayd8">Add HTTP security headers with relayd(8)</a></li>
-      </ul>
-    </li>
-    <li><a href="#ssh-server-and-client">SSH Server and Client</a></li>
-  </ul>
-</nav></aside>
-</div>
-<h2 class="statusOnGoing" id="status-on-going">Status: On-going</h2>
-<p>I want to host this very site you&rsquo;re in in a server that I own.</p>
-<p>Simply put, a server is just like any other computer, with lots of functionalities, like providing services or serving files to other computers (clients, as they are called in this context) that access it.</p>
-<p>In my use case, I will use it to host the HTML files of this site, and serve it to you, visitors, through your device/s (clients).</p>
-<p>The server will actually be an old laptop that&rsquo;s just lying around here.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=https://ohio.araw.xyz/css/style.css><link rel=icon href=data:><title>Own Web Server | to oblique lair</title></head><body><div class=container><main id=main><h1>Own Web Server</h1><div class=small>Last Update:
+<time datetime="Wed May 50 57:56:68 5050 +0800">5 May 2021</time></div><div><h4>Table of Contents</h4><aside class=small><nav id=TableOfContents><ul><li><a href=#status-on-going>Status: On-going</a></li><li><a href=#specifications-of-the-machine>Specifications of the Machine</a><ul><li><a href=#its-old>It&rsquo;s old&mldr;</a></li><li><a href=#-but-works-fine>&mldr; but works fine.</a></li></ul></li><li><a href=#a-suitable-operating-system>A suitable operating system</a><ul><li><a href=#using-openbsd-as-a-server>Using OpenBSD as a server</a></li></ul></li><li><a href=#installing-openbsd-on-bare-metal>Installing OpenBSD on bare metal</a><ul><li><a href=#1-download-the-installer>1. Download the installer</a></li><li><a href=#2-create-install-media-in-flash-drive>2. Create Install Media in Flash Drive</a></li><li><a href=#3-proceed-with-the-installation>3. Proceed with the Installation.</a></li><li><a href=#set-up-wi-fi-and-ethernet-networks>Set up wi-fi and ethernet networks</a></li><li><a href=#optional-things>Optional things</a></li></ul></li><li><a href=#ssh-server-and-client>SSH Server and Client</a><ul><li><a href=#client-side>Client Side</a></li><li><a href=#server-side-the-openbsd-machine>Server Side (the OpenBSD machine)</a></li></ul></li><li><a href=#web-server-on-openbsd>Web Server on OpenBSD</a><ul><li><a href=#configure-httpd>Configure httpd</a></li><li><a href=#enable-https-with-acme-client1-and-lets-encrypt>Enable HTTPS with acme-client(1) and Let&rsquo;s Encrypt</a></li><li><a href=#add-http-security-headers-with-relayd8>Add HTTP security headers with relayd(8)</a></li></ul></li><li><a href=#other-noteworthy-inconveniences>Other Noteworthy Inconveniences</a><ul><li><a href=#lan-ports-problem>LAN Ports problem</a></li><li><a href=#takeaways>Takeaway/s</a></li></ul></li></ul></nav></aside></div><h2 class=statusOnGoing id=status-on-going>Status: On-going</h2><p>I want to host this site (<code>ohio.araw.xyz</code>) in a server that I physically have with me.</p><p>Simply put, a server is just like any other computer,
+with lots of functionalities, like providing services or serving files to other computers
+(clients, as they are called in this context) that access it.</p><p>In my use case, I will use it to host the HTML files of this site,
+and serve it to you, visitors, through your device/s (clients).</p><p>The server will actually be an old laptop that&rsquo;s just lying around here.
 And it&rsquo;s not actually mine.
-The <a href="https://www.laptopmag.com/reviews/laptops/msi-wind-u123">MSI Wind Netbook</a> belongs to Isya, and I got her permission to use it for this project.</p>
-<h2 id="specifications-of-the-machine">Specifications of the Machine</h2>
-<ul>
-<li>Bluetooth 2.0</li>
-<li>CPU: 1.66-GHZ Intel Atom N280</li>
-<li>Display size: 10.2&quot;</li>
-<li>Graphics card: Intel GMA 950</li>
-<li>Hard drive size: 80Gb</li>
-<li>Hard drive speed: 5,400rpm</li>
-<li>Hard drive type: SATA hard drive</li>
-<li>Native resolution: 1024x600</li>
-<li>Operating system (OS, default): MS Windows XP Home</li>
-<li>Ports (excluding USB): VGA, Microphone, Headphone, Ethernet</li>
-<li>RAM: 2Gb</li>
-<li>Weight: 1.45 kg (3.2 lbs)</li>
-<li>Wifi: 802.11b/g</li>
-</ul>
-<h3 id="its-old">It&rsquo;s old&hellip;</h3>
-<p>By today&rsquo;s standards, it&rsquo;s an old machine.
+The <a href=https://www.laptopmag.com/reviews/laptops/msi-wind-u123>MSI Wind Netbook</a> belongs to Isya, and I got her permission to use it for this project.</p><h2 id=specifications-of-the-machine>Specifications of the Machine</h2><ul><li>Bluetooth 2.0</li><li>CPU: 1.66-GHZ Intel Atom N280</li><li>Display size: 10.2"</li><li>Graphics card: Intel GMA 950</li><li>Hard drive size: 80Gb</li><li>Hard drive speed: 5,400rpm</li><li>Hard drive type: SATA hard drive</li><li>Native resolution: 1024x600</li><li>Operating system (OS, default): MS Windows XP Home</li><li>Ports (excluding USB): VGA, Microphone, Headphone, Ethernet</li><li>RAM: 2Gb</li><li>Weight: 1.45 kg (3.2 lbs)</li><li>Wifi: 802.11b/g</li></ul><h3 id=its-old>It&rsquo;s old&mldr;</h3><p>By today&rsquo;s standards, it&rsquo;s an old machine.
 If the numbers don&rsquo;t make sense to you, just look at the OS:
-it shipped with Windows XP!</p>
-<p>Back in the day, Windows XP received many praises for its performance.
-These days, though, it&rsquo;s vulnerable to a lot of cyberattacks, more so that <a href="www.microsoft.com/en-us/microsoft-365/windows/end-of-windows-xp-support">Microsoft has stopped supporting it since 2014</a>.
+it shipped with Windows XP!</p><p>Back in the day, Windows XP received many praises for its performance.
+These days, though, it&rsquo;s vulnerable to a lot of cyberattacks, more so that <a href=www.microsoft.com/en-us/microsoft-365/windows/end-of-windows-xp-support>Microsoft has stopped supporting it since 2014</a>.
 And yet, some institutions still use it.
-If their computers are connected to the Internet, they are exposed to black hat hackers.</p>
-<figure><img src="/image/msi-wind.jpeg"
-         alt="screenshot of the laptop&#39;s system properties"/><figcaption>
-            <p>And now, a crappy photo of the laptop&rsquo;s system properties</p>
-        </figcaption>
-</figure>
-
-<h3 id="-but-works-fine">&hellip; but works fine.</h3>
-<p>Just because it&rsquo;s old doesn&rsquo;t mean it&rsquo;s no longer valuable.
+If their computers are connected to the Internet,
+they are exposed to black hat hackers.</p><figure><img src=/image/msi-wind.jpeg alt="screenshot of the laptop's system properties"><figcaption><p>And now, a crappy photo of the laptop&rsquo;s system properties</p></figcaption></figure><h3 id=-but-works-fine>&mldr; but works fine.</h3><p>Just because it&rsquo;s old doesn&rsquo;t mean it&rsquo;s no longer valuable.
 For its age, its quick to boot up.
-It would likely improve if and when the hard drive is replaced with a solid state drive, although, doing so is really unnecessary.</p>
-<p>In its current state, it &ldquo;runs out of breath&rdquo; trying to run modern applications with its very limiting hardware.</p>
-<p>The next best thing is to refurbish it into something that isn&rsquo;t resource intensive.
-This project will also be a learning process for me on how to manage my own small server.</p>
-<h2 id="a-suitable-operating-system">A suitable operating system</h2>
-<p>To many system administrators (sysadmin), a suitable operating system (OS) could mean many different things.</p>
-<p>I&rsquo;m no sysadmin by profession, so the OS I want running in this homebrew server shall be stable, requires minimal maintenance, and is (relatively) easy to set up.</p>
-<p>It shouldn&rsquo;t require much effort, knowing that my use case&mdash;serving static files of small personal website&mdash;is simple enough.</p>
-<p>At the moment, I&rsquo;m considering these two OS, because they still have support for 32-bit architectures (which this laptop has), and meet my requirements above:</p>
-<ul>
-<li><a href="https://www.debian.org">Debian</a> (GNU+Linux)</li>
-<li><a href="https://www.openbsd.org">OpenBSD</a> (BSD)</li>
-</ul>
-<p>I also have experience in using both, albeit in a 64-bit architecture.</p>
-<h3 id="using-openbsd-as-a-server">Using OpenBSD as a server</h3>
-<p>OpenBSD is a fully functional, Unix-like OS based on Berkeley Networking Release 2 (Net/2) and 4.4BSD-Lite.</p>
-<p>For now, I choose OpenBSD as a server because it&rsquo;s simpler to set up.
-As a result of its simplicity, it&rsquo;s also hailed as one of the most secure OS out there.</p>
-<p>Before anything else, a disclaimer:
-While I&rsquo;ll do my best to update this document, assume that the most recent documentation there is can be found over at the <a href="https://openbsd.org">OpenBSD website</a>.
-Their <a href="https://man.openbsd.org">manual pages</a> contain the details needed to operate a machine running on OpenBSD, and is entirely available offline on a base install.</p>
-<h2 id="installing-openbsd-on-bare-metal">Installing OpenBSD on bare metal</h2>
-<p>If you&rsquo;re new to the system, I highly recommend to go over the <a href="https://www.openbsd.org/faq/faq4.html">OpenBSD FAQ - Installation Guide</a> at least once.</p>
-<p>I&rsquo;m downloading the image from a Debian-based system, through the terminal, so most of the commands here are based on that.</p>
-<h3 id="1-download-the-installer">1. Download the installer</h3>
-<p>There are mirrors<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> from which you can download the installer.
-They are found <a href="https://www.openbsd.org/ftp.html">here</a>.
-Always choose the one nearest your location to reduce download time.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -OJ http://mirror.rise.ph/pub/OpenBSD/6.8/i386/install68.img
-</code></pre></div><h3 id="2-create-install-media-in-flash-drive">2. Create Install Media in Flash Drive</h3>
-<p>Plug in the USB stick.
+It would likely improve if and when the hard drive is replaced with a solid state drive, although, doing so is really unnecessary.</p><p>In its current state, it &ldquo;runs out of breath&rdquo; trying to run modern applications with its very limiting hardware.</p><p>The next best thing is to refurbish it into something that isn&rsquo;t resource intensive.
+This project will also be a learning process for me on how to manage my own small server.</p><h2 id=a-suitable-operating-system>A suitable operating system</h2><p>To many system administrators (sysadmin), a suitable operating system (OS) could mean many different things.</p><p>I&rsquo;m no sysadmin by profession, so the OS I want running in this homebrew server shall be stable, requires minimal maintenance, and is (relatively) easy to set up.</p><p>It shouldn&rsquo;t require much effort,
+knowing that my use case&mdash;serving static files of small personal website&mdash;is simple enough.</p><p>At the moment, I have considered these two OS,
+because they still have support for 32-bit architecture
+(which this laptop has), and meet my requirements above:</p><ul><li><a href=https://www.debian.org>Debian</a> (GNU+Linux)</li><li><a href=https://www.openbsd.org>OpenBSD</a> (BSD)</li></ul><p>I also have experience in using both, albeit in a 64-bit architecture.</p><h3 id=using-openbsd-as-a-server>Using OpenBSD as a server</h3><p>OpenBSD is a fully functional, Unix-like OS based on Berkeley Networking Release 2 (Net/2) and 4.4BSD-Lite.</p><p>For now, I choose OpenBSD as a server because it&rsquo;s simpler to set up.
+As a result of its simplicity, it&rsquo;s also hailed as one of the most secure OS out there.</p><p>Before anything else, a disclaimer:
+While I&rsquo;ll do my best to update this document, assume that the most recent documentation there is can be found over at the <a href=https://openbsd.org>OpenBSD website</a>.
+Their <a href=https://man.openbsd.org>manual pages</a> contain the details needed to operate a machine running on OpenBSD, and is entirely available offline on a base install.</p><h2 id=installing-openbsd-on-bare-metal>Installing OpenBSD on bare metal</h2><p>If you&rsquo;re new to the system, I highly recommend to go over the <a href=https://www.openbsd.org/faq/faq4.html>OpenBSD FAQ - Installation Guide</a> at least once.</p><p>I downloaded the image from a Debian-based system, through the terminal, so most of the commands here are based on that.</p><h3 id=1-download-the-installer>1. Download the installer</h3><p>There are mirrors<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> from which to download the installer.
+They are found <a href=https://www.openbsd.org/ftp.html>here</a>.
+I chose the nearest location to reduce download time.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -OJ http://mirror.rise.ph/pub/OpenBSD/6.9/i386/install69.img
+</code></pre></div><h3 id=2-create-install-media-in-flash-drive>2. Create Install Media in Flash Drive</h3><p>Plug in the USB stick.
 The following command assumes that the disk is recognized as <code>sdc1</code>.
-Check with <code>dmesg</code>, <code>df -h</code>, or <code>lsblk</code> commands, as root if need be.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>install*.img of<span style="color:#f92672">=</span>/dev/sdc1 bs<span style="color:#f92672">=</span>1M
+Check with <code>dmesg</code>, <code>df -h</code>, or <code>lsblk</code> commands, as root if need be.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>install*.img of<span style=color:#f92672>=</span>/dev/sdc1 bs<span style=color:#f92672>=</span>1M
 </code></pre></div><p>The <code>dd</code> utility copies the standard input <code>if</code> (or input file) to the standard output <code>of</code> (or output file, which, in this case, is the USB drive).
-<code>bs</code> stands for block size, and we set it to 1 megabyte.</p>
-<p>In my case, the successful output is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">450+0 records in
+<code>bs</code> stands for block size, and we set it to 1 megabyte.</p><p>In my case, the successful output is:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>450+0 records in
 450+0 records out
-<span style="color:#ae81ff">471859200</span> bytes <span style="color:#f92672">(</span><span style="color:#ae81ff">472</span> MB, <span style="color:#ae81ff">450</span> MiB<span style="color:#f92672">)</span> copied, 31.9492 s, 14.8 MB/s
-</code></pre></div><h3 id="3-proceed-with-the-installation">3. Proceed with the Installation.</h3>
-<p>Insert the USB drive into the machine.
-Boot from the USB drive.</p>
-<p>On the prompt, select **(i)**nstall and answer the questions.</p>
-<p>The default answers are sane.
-Most of my choices are the default ones.
-Yours may differ.</p>
-<p>Below is an incomplete list of questions during the installation, that I put here to remind my FutureSelf of the choice I made:</p>
-<p>DNS domain name? <strong>araw.xyz</strong><br>
-Do you want the X Window System to be started by xenodm(1)? <strong>no<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></strong><br>
-Which disk contains the install media? <strong>sd0<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></strong><br>
-Directory does not contain SHA256.sig. Continue without verification? <strong>yes</strong></p>
-<p>Reboot after installation.</p>
-<p>Then login as root.</p>
-<h4 id="enable-apmd8">Enable <code>apmd(8)</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rcctl enable apmd
-rcctl set apmd flags -a -z <span style="color:#ae81ff">7</span>
+<span style=color:#ae81ff>471859200</span> bytes <span style=color:#f92672>(</span><span style=color:#ae81ff>472</span> MB, <span style=color:#ae81ff>450</span> MiB<span style=color:#f92672>)</span> copied, 31.9492 s, 14.8 MB/s
+</code></pre></div><h3 id=3-proceed-with-the-installation>3. Proceed with the Installation.</h3><p>Insert the USB drive into the machine.
+Boot from the USB drive.</p><p>On the prompt, select **(i)**nstall and answer the questions.</p><p>The default answers are sane.
+Most of my choices are the default ones.</p><p>Below is an incomplete list of questions during the installation,
+that I put here to remind my FutureSelf of the choice I made:</p><p>DNS domain name? <strong>araw.xyz</strong><br>Do you want the X Window System to be started by xenodm(1)? <strong>no<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></strong><br>Which disk contains the install media? <strong>sd0<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></strong><br>Directory does not contain SHA256.sig. Continue without verification? <strong>yes</strong></p><p>Reboot after installation.</p><p>Then login as root.</p><h4 id=enable-apmd8>Enable <code>apmd(8)</code></h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>rcctl enable apmd
+rcctl set apmd flags -a -z <span style=color:#ae81ff>7</span>
 rcctl start apmd
-</code></pre></div><h4 id="add-username-to-etcdoasconf">Add username to <code>/etc/doas.conf</code></h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo <span style="color:#e6db74">&#39;permit yourUserName&#39;</span> &gt; /etc/doas.conf
-</code></pre></div><p>Reboot to make the changes.</p>
-<h3 id="set-up-wi-fi-and-ethernet-networks">Set up wi-fi and ethernet networks</h3>
-<p>Before doing anything else, we need to make sure that we are connected to the internet.
-This is to update any firmwares (using <code>fw_update</code>) and patches (using <code>syspatch</code>).</p>
-<p>If for some reason, you can&rsquo;t connect to the internet, there&rsquo;s still a way to install the needed firmwares, which will be discussed below.</p>
-<h4 id="ethernet">Ethernet</h4>
-<p>Most OpenBSD developers would tell you to use ethernet when you have it.
-It&rsquo;s reliable and secure.</p>
-<p>Network interfaces are named by taking the shorthand version of the network card.</p>
-<p>This laptop has <code>re(4)</code>, i.e. Realtek 8139C+/8169/816xS/811xS/8168/810xE 10/100/Gigabit Ethernet device.</p>
-<p>To set it up, create a file <code>/etc/hostname.re0</code> using vi<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, and put these two lines in:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dhcp
+</code></pre></div><p><a href=https://man.openbsd.org/apmd><code>apmd</code></a> is Advanced Power Management Daemon.<br><code>-a</code> option means BIOS-initiated suspend or standby requests are ignored if the system is connected to line current (plugged) and not running from batteries.<br><code>-z</code> option means to automatically <em>suspend</em> the system if no AC is connected and the estimated battery life is equal or below <code>7</code> percent.</p><h4 id=add-username-to-etcdoasconf>Add username to <code>/etc/doas.conf</code></h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo <span style=color:#e6db74>&#39;permit yourUserName&#39;</span> &gt; /etc/doas.conf
+</code></pre></div><p>Reboot to make the changes.</p><h3 id=set-up-wi-fi-and-ethernet-networks>Set up wi-fi and ethernet networks</h3><p>Before doing anything else, it&rsquo;s important to be connected to the internet.
+This is to update any firmwares (using <code>fw_update</code>) and patches (using <code>syspatch</code>).</p><h4 id=ethernet>Ethernet</h4><p>Most OpenBSD developers recommend using ethernet if it&rsquo;s available.
+It&rsquo;s reliable and secure.</p><p>Network interfaces are named by taking the shorthand version of the network card.</p><p>This laptop has <code>re(4)</code>, i.e. Realtek 8139C+/8169/816xS/811xS/8168/810xE 10/100/Gigabit Ethernet device.</p><p>To set it up, I created a file <code>/etc/hostname.re0</code> using vi<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>, and put these two lines in:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>dhcp
 up
-</code></pre></div><p>To make the file <code>/etc/hostname.re0</code> belong to the <code>root</code> (the super user) and <code>wheel</code>, and to set the necessary permissions, enter these commands as root:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.re0
-chmod <span style="color:#ae81ff">0640</span> /etc/hostname.re0
-</code></pre></div><p>Activate the ethernet connection by entering this as root:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh /etc/netstart
-</code></pre></div><p>If successful, it&rsquo;s possible now to update the firmwares, so you can use, among other things, the wifi.
-Enter as root:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fw_update
-</code></pre></div><h4 id="wi-fi">Wi-fi</h4>
-<p>This laptop has wi-fi capabilities, but isn&rsquo;t immediately compatible due to firmware issues.
-As just mentioned, firmware can be updated by <code>fw_update</code> if you&rsquo;re already connected to the internet via ethernet.
-But if that&rsquo;s unsuccessful for some reason, skip to the next section to get the firmware updates.</p>
-<p>This laptop has <code>ath(4)</code>, i.e. Atheros IEEE 802.11a/b/g wireless network device with GPIO.</p>
-<p>To set up the wifi, create a file <code>etc/hostname.athn0</code> as root and input these following lines:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">nwid myHomeWiFi wpakey p@s&amp;w0rD
+</code></pre></div><p>To make the file <code>/etc/hostname.re0</code> belong to the <code>root</code> (the super user) and <code>wheel</code>, and to set the necessary permissions, I entered these commands as root:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>chown root:wheel /etc/hostname.re0
+chmod <span style=color:#ae81ff>0640</span> /etc/hostname.re0
+</code></pre></div><p>Activate the ethernet connection by entering this as root:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sh /etc/netstart
+</code></pre></div><p>If successful, it&rsquo;s possible now to update the firmwares.
+Enter as root:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>fw_update
+</code></pre></div><h4 id=wi-fi>Wi-fi</h4><p>This laptop has wi-fi capabilities, but isn&rsquo;t immediately compatible due to firmware issues.
+As mentioned, firmware can be updated by <code>fw_update</code> if ethernet connection was successful.
+Otherwise, skip to the next section to get the firmware updates.</p><p>This laptop has <code>ath(4)</code>, i.e. Atheros IEEE 802.11a/b/g wireless network device with GPIO.</p><p>To set up the wifi, I created a file <code>/etc/hostname.athn0</code> as root and input these following lines:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nwid myHomeWiFi wpakey p@s&amp;w0rD
 dhcp
 up
-</code></pre></div><p>Like with the ethernet, specify that the file belongs to <code>root</code> and <code>wheel</code>, set the permissions, and activate the connection by entering the following lines, as root:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chown root:wheel /etc/hostname.athn0
-chmod <span style="color:#ae81ff">0640</span> /etc/hostname.athn0
+</code></pre></div><p>Like with the ethernet, specify that the file belongs to <code>root</code> and <code>wheel</code>, set the permissions, and activate the connection by entering the following lines, as root:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>chown root:wheel /etc/hostname.athn0
+chmod <span style=color:#ae81ff>0640</span> /etc/hostname.athn0
 
 sh /etc/netstart
-</code></pre></div><h4 id="installing-the-needed-firmware-from-another-device">Installing the needed firmware (from another device)</h4>
-<p>Not everything might work as expected.
+</code></pre></div><h4 id=installing-the-needed-firmware-from-another-device>Installing the needed firmware (from another device)</h4><p>Not everything might work as expected.
 Ethernet might not work out of the box.
 Wi-fi is unlikely to work, too, if the firmwares aren&rsquo;t updated.
 If you find yourself in this situation, there&rsquo;s another solution:
-get the firmware files from another computer that&rsquo;s connected to the internet.</p>
-<p>Then:</p>
-<ol>
-<li>On your OpenBSD machine, list the needed firmware.
-<code>fw_update</code> will determine this (you must be root).
-In this laptop, the firmwares needed are <code>intel-firmware</code>, <code>athn-firmware</code>, and <code>inteldrm-firmware</code>.</li>
-<li>On the other device (the one connected to the internet), go to <a href="http://firmware.openbsd.org">http://firmware.openbsd.org</a> and select the version you are installing.
-Download the firmware files in your list to a USB drive <strong>formatted as FAT32</strong>.
-(OpenBSD can&rsquo;t natively read ext4 or NTFS partitions.)
-<ol>
-<li>There are different ways you can format a USB drive to FAT32, depending on the platform you&rsquo;re doing the formatting on.
-If you&rsquo;re on a Debian-based system like I am, install the <em>dosfstools</em>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install dosfstools
-</code></pre></div></li>
-<li>Locate your USB drive by running this in terminal:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lsblk
-</code></pre></div><p>In my case, it&rsquo;s <code>/dev/sdc</code> .</p>
-</li>
-<li>Unmount the USB drive, because we can&rsquo;t format it when mounted:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo umount /dev/sdc
-</code></pre></div></li>
-<li>Create a new partition table, which we will determine to be <code>msdos</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script -- mklabel msdos
-</code></pre></div></li>
-<li>Specify that the whole drive must be of FAT32 file system, primary partition type:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdb --script -- mkpart primary fat32 1MiB 100%
-</code></pre></div></li>
-<li>Format the drive to FAT32:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mkfs.fat -F <span style="color:#ae81ff">32</span> -I /dev/sdc
-</code></pre></div></li>
-<li>(Optional) Check if your device has been partitioned correctly:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo parted /dev/sdc --script print
-</code></pre></div></li>
-</ol>
-</li>
-<li>Insert the USB drive to the OpenBSD machine.
+get the firmware files from another computer that&rsquo;s connected to the internet.</p><p>Then:</p><ol><li>On your OpenBSD machine, <code>fw_update</code> will determine the firmwares needed which are:<ul><li><code>intel-firmware</code></li><li><code>athn-firmware</code></li><li><code>inteldrm-firmware</code>.</li></ul></li><li>On the other device (the one connected to the internet), I downloaded the firmwared files from <a href=http://firmware.openbsd.org>http://firmware.openbsd.org</a>.
+However, the USB drive to which I would save these must be <strong>formatted as FAT32</strong>.
+(OpenBSD can&rsquo;t natively read ext4 or NTFS partitions.)<ol><li>There are different ways to format a USB drive to FAT32, depending on the platform you&rsquo;re doing the formatting on.
+In my Debian-like system, I installed <code>dosfstools</code>.<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt install dosfstools
+</code></pre></div></li><li>I plugged in and located the USB drive by running this in terminal:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>lsblk
+</code></pre></div><p>In my case, it&rsquo;s <code>/dev/sdc</code> .</p></li><li>Unmount the USB drive, because it can&rsquo;t be formatted when mounted:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo umount /dev/sdc
+</code></pre></div></li><li>I created a new partition table, which will be <code>msdos</code>.<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo parted /dev/sdc --script -- mklabel msdos
+</code></pre></div></li><li>I specified that the whole drive must be of FAT32 file system, primary partition type:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo parted /dev/sdb --script -- mkpart primary fat32 1MiB 100%
+</code></pre></div></li><li>Format the drive to FAT32:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo mkfs.fat -F <span style=color:#ae81ff>32</span> -I /dev/sdc
+</code></pre></div></li><li>(Optional) To check if the device has been partitioned correctly:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo parted /dev/sdc --script print
+</code></pre></div></li></ol></li><li>Insert the USB drive that has now the firmware files to the OpenBSD machine.
 As root, enter <code>diskutil list</code>.
-Your USB drive will appear to have several partitions, e.g. sd1c.</li>
-<li>Create a mount point under /mnt (as root):
-<code>shell mkdir /mnt/usb</code></li>
-<li>Mount the USB (as root):
-<code>shell mount /dev/sd1i /mnt/usb</code></li>
-<li>Once mounted, install the firmware manually (as root):
-<code>shell fw_update -p /mnt/usb</code></li>
-<li>Reboot</li>
-</ol>
-<h3 id="optional-things">Optional things</h3>
-<p>In this laptop, I&rsquo;m going install several binaries from the ports, namely <strong>git</strong> (version control system), and <strong>neovim</strong> (text editor).
-To install in one go, enter as root:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkg_add git neovim 
-</code></pre></div><h2 id="web-server-on-openbsd">Web Server on OpenBSD</h2>
-<p>Now we&rsquo;re at the heart of this project:
+The USB drive will appear to have several partitions, e.g. sd1c.</li><li>Create a mount point under /mnt (as root):<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir /mnt/usb
+</code></pre></div></li><li>Mount the USB (as root):<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mount /dev/sd1i /mnt/usb
+</code></pre></div></li><li>Once mounted, install the firmware manually (as root):<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>fw_update -p /mnt/usb
+</code></pre></div></li><li>Reboot.</li></ol><h3 id=optional-things>Optional things</h3><p>In this laptop, I&rsquo;m going install several binaries from the ports, namely <strong>git</strong> (version control system), and <strong>neovim</strong> (text editor).
+To install in one go, enter as root:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>pkg_add git neovim 
+</code></pre></div><h2 id=ssh-server-and-client>SSH Server and Client</h2><p>In order for the client to connect to the server,
+a user account must be created on the server.
+During OpenBSD install, I had already created a user.</p><p>Now, to set up the SSH<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>:</p><h3 id=client-side>Client Side</h3><p>Before generating, be sure to check first whether there are any existing ones.</p><p>Enter <code>ls -al ~/.ssh</code> to do that.
+Check the listing to see if public SSH key (sometimes referred to as &ldquo;pubkey&rdquo;) already exists.
+Filenames include:</p><ul><li><code>id_rsa.pub</code></li><li><code>id_ecdsa.pub</code></li><li><code>id_ed25519.pub</code></li></ul><p><strong>To generate a new key</strong>:</p><ol><li>Enter this in the terminal:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh-keygen -t ed25519 -a <span style=color:#ae81ff>100</span>
+</code></pre></div><p><code>-t ed25519</code> option specifies the type of key;<br><code>-a 100</code> option specifies the number of key derivation function rounds used.</p></li><li>Follow the prompts.
+I left the defaults as they are, but feel free to configure for your use case.</li><li>In order to add key, start the ssh-agent in the background.<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>eval <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>ssh-agent -s<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</code></pre></div></li><li>Add the SSH private key to the ssh-agent.<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh-add ~/.ssh/id_ed25519
+</code></pre></div></li><li>When going to the remote server using SSH, you&rsquo;ll be prompted for a password everytime.
+Instead of that, we can use the SSH key.
+Copy that into the remote server:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh-copy-id username@example.com
+</code></pre></div><p>This will prompt you one last time for the password of the server.
+If successful, the server will no longer prompt you for password everytime you SSH into it.</p></li></ol><h3 id=server-side-the-openbsd-machine>Server Side (the OpenBSD machine)</h3><p>A few tweaks are needed to make SSH a pleasant experience.</p><ol><li>Login&mdash;or SSH <em>into</em>&mdash;the server:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh username@example.com
+</code></pre></div></li><li>Edit <code>/etc/ssh/sshd_config</code>:<div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># find PasswordAuthentication, comment it out, </span>
+<span style=color:#75715e># and turn &#39;yes&#39; to &#39;no&#39;</span>
+<span style=color:#75715e># so bad actors can&#39;t login even if they know the passwd</span>
+PasswordAuthentication no
+
+<span style=color:#75715e># find PermitRootLogin, comment it out, </span>
+<span style=color:#75715e># and turn &#39;no&#39; to &#39;yes&#39;</span>
+<span style=color:#75715e># so rsync can access the root when syncing files</span>
+PermitRootLogin yes
+</code></pre></div></li></ol><h2 id=web-server-on-openbsd>Web Server on OpenBSD</h2><p>Now we&rsquo;re at the heart of this project:
 to make this old laptop a working server for this site.
-Let&rsquo;s start by configuring httpd, the native HTTP daemon in the OpenBSD.</p>
-<h3 id="configure-httpd">Configure httpd</h3>
-<h3 id="enable-https-with-acme-client1-and-lets-encrypt">Enable HTTPS with acme-client(1) and Let&rsquo;s Encrypt</h3>
-<h3 id="add-http-security-headers-with-relayd8">Add HTTP security headers with relayd(8)</h3>
-<h2 id="ssh-server-and-client">SSH Server and Client</h2>
-<p>In order for the client to connect to the server, a user account must be created on the server.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>It&rsquo;s just a server that provides the exact copy of data from another server.
-Usually to provide a means of redundancy.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Since this is going to be a server, graphical user interface is not needed.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:3" role="doc-endnote">
-<p>The USB drive.
+Let&rsquo;s start by configuring httpd, the native HTTP daemon in the OpenBSD.</p><h3 id=configure-httpd>Configure httpd</h3><h3 id=enable-https-with-acme-client1-and-lets-encrypt>Enable HTTPS with acme-client(1) and Let&rsquo;s Encrypt</h3><h3 id=add-http-security-headers-with-relayd8>Add HTTP security headers with relayd(8)</h3><h2 id=other-noteworthy-inconveniences>Other Noteworthy Inconveniences</h2><p>In this section, I&rsquo;ll discuss the obstacles that I had to go through.</p><h3 id=lan-ports-problem>LAN Ports problem</h3><p>At the time of writing, our internet service provider is PLDT Home Fibr.
+Subscription comes with an actual telephone and a router.
+The router has four LAN ports.</p><p>To improve the reach to the second floor of our home,
+we connected another router (Xiaomi brand) to LAN port 1.
+This second router has been working well since.</p><p>By default, LAN ports 2, 3, and 4 are disabled.
+I didn&rsquo;t know that.
+When first setting up the ethernet connection for the OpenBSD machine,
+it wasn&rsquo;t detecting anything.</p><p>During troubleshoot, I tried the three remaining ports with different ethernets that were available to me at the time.
+None of this approaches worked.</p><h3 id=takeaways>Takeaway/s</h3><ul><li>Always read the official documentations.
+In the case of OpenBSD, their man pages are superb, and is available already in the base install.
+Be patient to go through them.</li><li>Check with your internet service provider whether some things need to be done first, before setting up a homebrew server.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>It&rsquo;s just a server that provides the exact copy of data from another server.
+Usually to provide a means of redundancy.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Since this is going to be a server, I don&rsquo;t need graphical user interface.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>The USB drive.
 This might be different for every other machine.
-At any point during the installation, type <code>?</code> to list the possible choices.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:4" role="doc-endnote">
-<p>vi is a text editor already present in the base install of OpenBSD.
-I&rsquo;m familiar with its usage, but ultimately I&rsquo;ll use (neo)vim.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-
-<br>
-<br>
-<br>
-
-<p>
-Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#x2024;xyz</code><br>
-Helpful? Consider <a href="/support">supporting me</a>.<br>
-</p>
-<p>
-Back to 🏠<a href="/">Index</a> :: 📋<a href="/log">Log</a> :: 📚<a href="/project">Projects</a>
-</p>
-
-
-      </main>
-    </div>
-  </body>
-  <footer class="small">
-	<hr>
-	Everything is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" >CC BY-SA 4.0</a>
-	<br>
-	<a href="https://512kb.club"><span style="color:green; font-weight:bold">GREEN TEAM</span> of 512KB Club</a>
-    <br>This site is private 😏 No cookies, scripts, trackers, and analytics.
-    <br>Read the <a href="/disclaimer/">disclaimer</a>.
-</footer>
-
-</html>
+At any point during the installation, type <code>?</code> to list the possible choices.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p>vi is a text editor already present in the base install of OpenBSD.
+I&rsquo;m familiar with it, but ultimately I&rsquo;ll use (neo)vim.&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5 role=doc-endnote><p>The SSH (secure shell) protocol uses encryption to secure the connection between a client and a server.
+All user authentication, commands, ouput, and file transfers are encrypted to protect against attacks in the network.
+For more info: <a href=https://www.ssh.com>https://www.ssh.com</a>&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section><br><br><br><p>Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#8228;xyz</code><br>Helpful? Consider <a href=/support>supporting me</a>.<br></p><p>Back to 🏠<a href=/>Index</a> :: 📋<a href=/log>Log</a> :: 📚<a href=/project>Projects</a></p></main></div></body><footer class=small><hr>Everything is licensed under <a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a><br><a href=https://250kb.club>Member of 250KB Club</a><br>This site is private 😏 No cookies, scripts, trackers, and analytics.<br>Read the <a href=/disclaimer/>disclaimer</a>.</footer></html>
