@@ -1,86 +1,95 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.81.0"><link rel=stylesheet href=https://ohio.araw.xyz/css/style.css><link rel=icon href=data:><title>The Old Computer Challenge | to oblique lair</title></head><body><div class=container><main id=main><h1>The Old Computer Challenge</h1><div class=small>Last Update:
-<time datetime="Tue Jul 70 77:711:118 13130 +0800">13 Jul 2021</time></div><div><h4>Table of Contents</h4><aside class=small><nav id=TableOfContents><ul><li><a href=#status-on-going>Status: On-going</a></li><li><a href=#hardware>Hardware</a></li><li><a href=#software>Software</a></li><li><a href=#window-manager>Window Manager</a></li><li><a href=#terminal-emulator>Terminal Emulator</a></li><li><a href=#file-manager>File Manager</a><ul><li><a href=#status-bar>Status bar</a></li></ul></li><li><a href=#web-browsers>Web Browsers</a><ul><li><a href=#text-based>Text-based</a></li><li><a href=#gui>GUI</a></li></ul></li><li><a href=#watching-videos>Watching Videos</a></li><li><a href=#getting-the-latest>Getting the latest</a></li><li><a href=#blogging>Blogging</a><ul><li><a href=#accesing-github>Accesing Github</a></li></ul></li><li><a href=#irc>IRC</a></li><li><a href=#smartphone>Smartphone</a></li></ul></nav></aside></div><h2 class=statusOnGoing id=status-on-going>Status: On-going</h2><p>This project is my attempt to &ldquo;make it work&rdquo; using old, un-upgraded computer.
-Over this period, I will document the good, the bad, and the ugly.
+<time datetime="Wed Jul 70 77:72:28 14140 +0800">14 Jul 2021</time></div><div><h4>Table of Contents</h4><aside class=small><nav id=TableOfContents><ul><li><a href=#status-on-going>Status: On-going</a></li><li><a href=#hardware>Hardware</a></li><li><a href=#software>Software</a></li><li><a href=#window-manager>Window Manager</a></li><li><a href=#terminal-emulator>Terminal Emulator</a></li><li><a href=#file-manager>File Manager</a><ul><li><a href=#status-bar>Status bar</a></li></ul></li><li><a href=#web-browsers>Web Browsers</a><ul><li><a href=#text-based>Text-based</a></li><li><a href=#gui>GUI</a></li></ul></li><li><a href=#watching-videos>Watching Videos</a></li><li><a href=#getting-the-latest>Getting the latest</a></li><li><a href=#blogging>Blogging</a><ul><li><a href=#accesing-github>Accesing Github</a></li></ul></li><li><a href=#irc>IRC</a></li><li><a href=#smartphone>Smartphone</a></li></ul></nav></aside></div><h2 class=statusOnGoing id=status-on-going>Status: On-going</h2><p>This project is my attempt to &ldquo;make it work&rdquo; using old, un-upgraded computer.
+Over this period, I&rsquo;ll document the good, the bad, and the ugly.
 Below isn&rsquo;t necessarily a tutorial, but personal notes.
-Whenever possible, I link the things I use to their respective online documentation.</p><p><a href=https://dataswamp.org/~solene/2021-07-07-old-computer-challenge.html>Solene&rsquo;s prompt was to use old computers for a week</a>,
+Whenever possible, I&rsquo;ll link the things I use to their respective online documentation.</p><p><a href=https://dataswamp.org/~solene/2021-07-07-old-computer-challenge.html>Solene&rsquo;s prompt was to use old computers for a week</a>,
 from 10-17 July 2021.
-That&rsquo;s the gist.
-For details, check Solene&rsquo;s post.</p><p>I don&rsquo;t think I followed all the rules to the letter.
+For details, check Solene&rsquo;s post.</p><p>I didn&rsquo;t follow all the rules to the letter.
 For example, I didn&rsquo;t limit my RAM to 512MB.
-Doing so, in my case, would terribly limit my hardware.</p><p>For this, I&rsquo;m recommissioning the MSI Wind Netbook for this project,
-the same laptop that I originally planned to be my <a href=/server.md>homebrew server</a>.</p><p>For context, here are the following specs that I&rsquo;m dealing with:</p><h2 id=hardware>Hardware</h2><p>The <a href=https://www.laptopmag.com/reviews/laptops/msi-wind-u123>MSI Wind Netbook</a> makes another comeback for this week,
-whose physical parts comprise:</p><ul><li>CPU: 1.66-GHZ Intel Atom N280</li><li>Display size: 10.2"</li><li>Graphics card: Intel GMA 950</li><li>Hard drive size: 80Gb</li><li>Hard drive speed: 5,400rpm</li><li>Hard drive type: SATA hard drive</li><li>Native resolution: 1024x600</li><li>Ports (excluding USB): VGA, Microphone, Headphone, Ethernet</li><li>RAM: 2Gb</li><li>Wifi: 802.11b/g</li></ul><p>Moreover, the physical condition is not even good to begin with:</p><ul><li>no battery, always plugged in;</li><li>some keys don&rsquo;t work properly;</li><li>speakers can only go up to a certain volume, barely audible
-(this is a non-issue, though; I can just use earphones as the jacks are working fine).</li></ul><p>In real life, some people may just be lucky enough to have a working computer (maybe as a donation),
+Doing so, in my case, would result in a terrible experience.</p><p>I&rsquo;m recommissioning the MSI Wind Netbook for this project,
+the same laptop that I originally planned to be my <a href=/server.md>homebrew server</a>.</p><p>Here are the specs of what I&rsquo;m dealing with:</p><h2 id=hardware>Hardware</h2><p>The <a href=https://www.laptopmag.com/reviews/laptops/msi-wind-u123>MSI Wind Netbook</a> makes another comeback for this week,
+whose physical parts comprise:</p><ul><li>CPU: 1.66-GHZ Intel Atom N280</li><li>Display size: 10.2"</li><li>Graphics card: Intel GMA 950</li><li>Hard drive size: 80Gb</li><li>Hard drive speed: 5,400rpm</li><li>Hard drive type: SATA hard drive</li><li>Native resolution: 1024x600</li><li>Ports (excluding USB): VGA, Microphone, Headphone, Ethernet</li><li>RAM: 2Gb</li><li>Wifi: 802.11b/g</li></ul><p>Note also that the physical condition is not even good to begin with:</p><ul><li>no battery, always plugged in;</li><li>some keys don&rsquo;t work properly;</li><li>speakers can only go up to a certain volume, barely audible
+(this is a non-issue, though; I can just use earphones as the jacks are working fine);</li><li>fan hums weirdly, like choking on static.</li></ul><p>In real life, some people may just be lucky enough to have a working computer (maybe as a donation),
 but not so much to afford to upgrade its parts.
-Think far-flung rural areas.</p><h2 id=software>Software</h2><p>I need software that requires minimal resources but still empowers the user to &ldquo;do things.&rdquo;
-To me, this means that I have to use the terminal whenever possible.</p><ul><li>Operating System: <a href=https://openbsd.org>OpenBSD 6.9</a></li><li>Window Manager: cwm</li><li>Terminal Emulator: <a href=https://st.suckless.org>st</a> mostly, xterm for using w3m (more info below)</li><li>Terminal Multiplexer: tmux</li><li>Text Editor: <a href=https://neovim.io>neovim</a> or vi<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> depending on the mood</li><li>Web Browser: <a href=https://qutebrowser.org>qutebrowser</a> (GUI) or w3m (TUI)</li><li>Shell: ksh</li><li>RSS reader: <a href=https://newsboat.org>newsboat</a></li><li>Media player: <a href=https://mpv.io>mpv</a></li><li>Static site generator: <a href=https://gohugo.io>hugo</a></li><li>File manager: sometimes <a href=https://github.com/jarun/nnn>nnn</a>; mostly just Unix utilities</li><li>IRC client: <a href=https://irssi.org>irssi</a></li><li>Version Conrol: <a href=https://git-scm.com>git</a></li></ul><figure><img src=/image/oldpc.png alt="screenshot of system running tmux with neovim, pfetch, htop"><figcaption><p>System captured with <code>scrot</code></p></figcaption></figure><p>For anyone who cares, here&rsquo;s <a href=/dmesg.txt>dmesg</a> for more details about my system.</p><h2 id=window-manager>Window Manager</h2><p>For the window manager,
-I initially opted for <a href=https://dwm.suckless.org>dwm</a>,
+Think far-flung rural areas.</p><p>For anyone who cares, here&rsquo;s <a href=/dmesg.txt>dmesg</a> for more details about my system.</p><h2 id=software>Software</h2><p>I need software that requires minimal resources but still empowers the user to &ldquo;do things.&rdquo;
+To me, this means that I have to use the terminal whenever possible.
+The following are what I have in my netbook:</p><ul><li>Operating System: <a href=https://openbsd.org>OpenBSD 6.9</a></li><li>Window Manager: cwm</li><li>Terminal Emulator: <a href=https://st.suckless.org>st</a> mostly, xterm for using w3m (more info below)</li><li>Terminal Multiplexer: tmux</li><li>Text Editor: <a href=https://neovim.io>neovim</a> or vi<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> depending on the mood</li><li>Web Browser: <a href=https://qutebrowser.org>qutebrowser</a> (GUI) or w3m (TUI)</li><li>Shell: ksh</li><li>RSS reader: <a href=https://newsboat.org>newsboat</a></li><li>Media player: <a href=https://mpv.io>mpv</a></li><li>Static site generator: <a href=https://gohugo.io>hugo</a></li><li>File manager: sometimes <a href=https://github.com/jarun/nnn>nnn</a>; mostly just Unix utilities</li><li>IRC client: <a href=https://irssi.org>irssi</a></li><li>Version Conrol: <a href=https://git-scm.com>git</a></li></ul><figure><img src=/image/oldpc.png alt="screenshot of system running tmux with neovim, pfetch, htop"><figcaption><p>System captured with <code>scrot</code></p></figcaption></figure><p>Most of them are available in the official ports.
+Download them, and some other dependencies, in one go:</p><pre><code># pkg_add firefox git gmake go irssi hugo \
+newsboat nnn nvim mpv py3-pip \
+qutebrowser w3m-*-image webkitgtk4
+</code></pre><h2 id=window-manager>Window Manager</h2><p>I initially opted for <a href=https://dwm.suckless.org>dwm</a>,
 because that&rsquo;s my favorite.
 However, everytime I boot into it,
-the X System seems to hang&mldr;?
-At this point, it will only respond when I switch to tty (<code>ctrl + alt + F1</code>).
+the X Server seems to hang&mldr;?
+At this point, it would only respond when I switch to tty (<code>ctrl + alt + F1</code>).
 Since I couldn&rsquo;t&mdash;<em>don&rsquo;t</em> have the patience&mdash;to figure it out,
 I decided to settle with what&rsquo;s on the base install.</p><p>I tried <a href=https://fvwm.org>fvwm</a>.
-Everything in the base install seems to work fine.
+All existing systems were good.
 But I don&rsquo;t get the layout.
 And the aesthetic is too&mldr; archaic for me.
-Lastly, it seems to rely heavily on the mouse?
-There&rsquo;s probably a way to configure it be keyboard-centric.</p><p>Then, I switched to cwm,
-or calm window manager,
+Lastly, default config seems to rely heavily on mouse?
+There&rsquo;s probably a way to configure it to be keyboard-centric.</p><p>Finally, I switched to <a href=https://man.openbsd.org/cwm.1>cwm</a>,
 which is also present in the base install.
-After fumbling with this,
 I find cwm more pleasant to use than fvwm.</p><p>I didn&rsquo;t want the console log to open everytime I log in,
-so I commented it out of the <code>/etc/X11/Xenodm/Xsetup_0</code> file.</p><h2 id=terminal-emulator>Terminal Emulator</h2><p>I use st because it&rsquo;s snappier than xterm.
-st lacks scrollback feature, though, which tmux solves fortunately.
-I applied no patches for my build.</p><p>I use xterm only for when using w3m-img,
-because it properly renders images, unlike st.
-A dedicated key-binding spawns an xterm instance outside of tmux just to load w3m-img.</p><h2 id=file-manager>File Manager</h2><p>I&rsquo;d like to say that I won&rsquo;t use a file manager,
-but I installed nnn just in case.</p><pre><code># pkg_add nnn
-</code></pre><p>However, mostly I use <code>mv</code>, <code>cp</code>, <code>rm</code>, <code>cd</code>, <code>ls</code> and other Unix utilities for moving around.
-Using them &ldquo;forces&rdquo; me to be mindful of the current file tree structure in home directory.
-It also encourages me to immediately clean up files and/or put them where they need to be.</p><p>As an effect, my system is clutter-free and simple<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.
+so I commented it out of the <code>/etc/X11/Xenodm/Xsetup_0</code> file.</p><h2 id=terminal-emulator>Terminal Emulator</h2><p>I use <code>st</code> because it&rsquo;s snappier than <code>xterm</code>.
+<code>st</code> lacks scrollback feature, though, which <code>tmux</code> solves fortunately.
+I applied no patches for my build.</p><p>I use <code>xterm</code> only for when using <code>w3m-img</code>,
+because it properly renders images, unlike <code>st</code>.
+A dedicated key-binding spawns an <code>xterm</code> instance outside of <code>tmux</code> just to load <code>w3m-img</code>.</p><h2 id=file-manager>File Manager</h2><p>I don&rsquo;t often use a file manager,
+but I installed <code>nnn</code> just in case.</p><p>Mostly, I use <code>mv</code>, <code>cp</code>, <code>rm</code>, <code>cd</code>, <code>ls</code> and other Unix utilities for moving around.
+Using them &ldquo;forces&rdquo; me to be mindful of the current file tree structure in (and out) of home directory.
+It also encourages me to immediately clean up files and/or put them where they need to be.
+As an effect, my system is clutter-free and simple<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.
 I believe the cool people call it digital minimalism.</p><h3 id=status-bar>Status bar</h3><p>I have no separate program for status bar like <a href=https://polybar.github.io>polybar</a> and the like.
-The status bar of tmux works fine displaying the date and time.</p><p>If I suspect that the internet is down,
+I refer to tmux&rsquo;s status bar for date and time.</p><p>If I suspect that the internet is down,
 I can just use <code>ping</code>.
-Luckily, I can rely on my ISP uptime <em>most of the time</em>.</p><p>Since I use the headphone jack,
+Luckily, I can rely on my ISP uptime <em>most of the time</em>.
+No need for a visual cue for that.</p><p>Since I use the headphone jack,
 I don&rsquo;t need a visual representation of the volume;
 the actual sound coming out of the earphones that I use should be enough an indicator.</p><h2 id=web-browsers>Web Browsers</h2><h3 id=text-based>Text-based</h3><p>Text-based browsers can connect me to the internet even on limited hardware.
 They are less resource intensive, unlike the GUI ones, and that&rsquo;s expected.</p><p>However, it&rsquo;s only natural for my human eyes to want to look at pictures from time to time,
-especially if it&rsquo;s relevant to the content.</p><p>The w3m in base install had to be replaced with another w3m version that supports image<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.
-Such version is available in the official packages.</p><pre><code># pkg_add w3m-*-image
-</code></pre><p>Like I said, using w3m-img on xterm works as expected.
-Now, I won&rsquo;t miss out on photos on blogs!</p><p>I use the lightest version of DuckDuckGo (that I know) as my search engine:
-<code>ddg.gg/lite</code></p><h3 id=gui>GUI</h3><p>I can tolerate the slow loading times of Firefox,
-but often, it&rsquo;s just too heavy on the resources.</p><p>qutebrowser is a more lightweight option, and runs okay.
-I prefer using this one over Firefox.</p><h2 id=watching-videos>Watching Videos</h2><p>To watch videos from the channels that I subscribe to on YouTube,
-I use mpv, youtube-dl, and <a href=https://github.com/pystardust/ytfzf>ytfzf</a>.</p><p>Download mpv, a lightweight yet extensible media player:</p><pre><code># pkg_add mpv
-</code></pre><p>There&rsquo;s a youtube-dl ported to OpenBSD&rsquo;s official packages,
+especially if it&rsquo;s relevant to the content.</p><p>The <code>w3m</code> in base install had to be replaced with another <code>w3m</code> version that supports image<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</p><p>Like I said, using w3m-img on xterm works as expected.
+Now, I won&rsquo;t miss out on photos on blogs!</p><p><code>w3m</code> doesn&rsquo;t support CSS and JavaScript,
+and that&rsquo;s good!
+Web developers, though, haven&rsquo;t been designing the modern web to beusable with HTML only,
+so expect that many sites will break while using text-based browsers.
+I wish this weren&rsquo;t the case, but it has come to this&mldr;</p><p>I use the lightest version of DuckDuckGo (that I know) as my search engine:
+<code>ddg.gg/lite</code></p><h3 id=gui>GUI</h3><p>I <em>could</em> tolerate the slow loading times of Firefox,
+but why would I?
+(Hardened) Firefox is only okay to use on computer with 4GB ram or up.</p><p>qutebrowser is a more lightweight option, and runs okay.
+I prefer using this one over Firefox,
+but only do so when <code>w3m</code> won&rsquo;t do.</p><p>I tried installing <a href=https://surf.suckless.org>suckless surf</a>,
+but was only successful when I got webkitgtk4.
+surf can also be an alternative lightweight GUI browser,
+but it needs more patching to be as usable as qutebrowser.</p><h2 id=watching-videos>Watching Videos</h2><p>To watch videos from the channels that I subscribe to on YouTube,
+I use <code>mpv</code>, <code>youtube-dl</code>, and <a href=https://github.com/pystardust/ytfzf><code>ytfzf</code></a>.</p><p>There&rsquo;s a <code>youtube-dl</code> ported to OpenBSD&rsquo;s official packages,
 but it&rsquo;s outdated.
 It returns an error when I try downloading a video with it.
-I got the latest version from pip3 instead.</p><p>Download pip3:</p><pre><code># pkg_add py3-pip
-</code></pre><p>Then download youtube-dl using pip3:</p><pre><code># pip3.8 install youtube-dl
-</code></pre><p>Download ytfzf,</p><pre><code>$ git clone https://github.com/pystardust/ytfzf &amp;&amp; cd ytfzf
+I got the latest version from pip3 instead.</p><pre><code># pip3.8 install youtube-dl
+</code></pre><p>Download <code>ytfzf</code>, a &ldquo;POSIX script to find and watch YT videos from the terminal.&rdquo;</p><pre><code>$ git clone https://github.com/pystardust/ytfzf
+$ cd ytfzf
 # make install
-</code></pre><p>ytfzf, youtube-dl, mpv works in this setup so far.
-Now, I can look up YT videos from terminal, and open them in mpv, browser-less!</p><h2 id=getting-the-latest>Getting the latest</h2><p>I use newsboat as my RSS reader.</p><p>Get it from the official packages:</p><pre><code># pkg_add newsboat
-</code></pre><p>I reused (copied) the URL list from my main machine to this netbook,
+</code></pre><h2 id=getting-the-latest>Getting the latest</h2><p>I use newsboat as my RSS reader.
+I reused (copied) the URL list from my main machine to this netbook,
 but I trimmed the sites that don&rsquo;t offer the full content in their feed.
 This is to keep my reading contained within newsboat,
-and to not have to open a browser.</p><h2 id=blogging>Blogging</h2><p>How else can I report to the public about this project if not through this <a href=/site>site</a>?</p><p>I build this site using hugo.
-It&rsquo;s officially ported to OpenBSD, so getting it is as easy as:</p><pre><code># pkg_add hugo
-</code></pre><h3 id=accesing-github>Accesing Github</h3><p>At the time of writing,
+and to not have to open a browser.</p><h2 id=blogging>Blogging</h2><p>How else can I report to the public about this project if not through this <a href=/site>site</a>?</p><p>I build this site using <code>hugo</code>.
+Ever since I got into making static websites,
+it&rsquo;s all I use.
+I <code>git</code> my files for version control.</p><h3 id=accesing-github>Accesing Github</h3><p>At the time of writing,
 this site and its source code is hosted on Github.
-I wanted to access Github<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> through their <a href=cli.github.com>gh-cli</a>,
-because it&rsquo;s quicker than opening a GUI browser.</p><p>The only option for me is to build it from source.</p><p>First, I need golang and gmake,
+I wanted to access Github<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> through their <a href=https://cli.github.com><code>gh-cli</code></a>,
+because it&rsquo;s quicker than opening a GUI browser.</p><p>The only option for me is to build it from source.</p><p>I need <code>go</code> and <code>gmake</code>,
 the latter for compiling,
-because <code>make == clang</code> in base install,
-and <code>clang</code> doesn&rsquo;t work (I&rsquo;ve tried).
-Might as well add, you know, git, into the mix.</p><pre><code># pkg_add go gmake git
-</code></pre><p>Then follow the <a href=https://github.com/cli/cli/blob/trunk/docs/source.md>instructions when installing from source</a>,
+because <code>make</code> is really <code>clang</code> in base install,
+and <code>clang</code> doesn&rsquo;t compile <code>gh-cli</code> (I&rsquo;ve tried).</p><p>Then follow the <a href=https://github.com/cli/cli/blob/trunk/docs/source.md>instructions when installing from source</a>,
 except do use <code>gmake</code> when building and installing, like so:</p><pre><code># gmake install
 </code></pre><figure><img src=/image/gh-cli.png alt="screenshot of tmux running gmake, htop, and scrot"><figcaption><p>Compiling time compelled me to make lunch.</p></figcaption></figure><p>Lastly, I followed the prompts after typing:</p><pre><code>$ gh auth login
-</code></pre><h2 id=irc>IRC</h2><p>I&rsquo;ve been meaning to get into the internet relay chat, or IRC, for a long time now.</p><p>I choose irssi as my IRC client.</p><pre><code># pkg_add irssi
-</code></pre><p>Currently, I hangout in <code>irc.libera.chat</code> as <code>oqo</code>.</p><h2 id=smartphone>Smartphone</h2><p>I contact my friends and family through <a href=https://signal.org>Signal Messenger</a>,
-so that means I must keep on using my smartphone.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>vi in OpenBSD is actually <a href=https://www.bostic.com/vi/>nvi</a>.
-vi works well (quickly) for editing config files. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Of course, this is purely a subjective assessment of my system. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>According to <code>pkg_add</code>, w3m-img is in direct conflict with w3m (in base install).
-I installed the former after removing the latter. <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p>I also use Github for other non-blogging projects, so doing this is vital. <a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section><br><br><br><p>Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#8228;xyz</code><br>Helpful? Consider <a href=/support>supporting me</a>.<br></p><p>Back to 🏠<a href=/>Index</a> :: 📋<a href=/log>Log</a> :: 📚<a href=/project>Projects</a></p></main></div></body><footer class=small><hr>Everything is licensed under <a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a><br><a href=https://250kb.club>Member of 250KB Club</a><br>This site is private 😏 No cookies, scripts, trackers, and analytics.<br>Read the <a href=/disclaimer/>disclaimer</a>.</footer></html>
+</code></pre><h2 id=irc>IRC</h2><p>I&rsquo;ve been meaning to get into the internet relay chat, or IRC, for a long time now.
+I choose <code>irssi</code> as my IRC client.
+Currently, I hangout in <code>irc.libera.chat</code> as <code>oqo</code>.
+Got to talk with some of the cool people hanging out on <code>#old-computer-challenge</code></p><h2 id=smartphone>Smartphone</h2><p>I contact my friends and family through <a href=https://signal.org>Signal Messenger</a> on my four-year old phone.
+By today&rsquo;s standards, that too is an old computer.
+Talk about staying consistent with the project&rsquo;s theme!</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>vi in OpenBSD is actually <a href=https://www.bostic.com/vi/>nvi</a>.
+vi works well (quickly) for editing config files. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Of course, this is purely a subjective assessment of my system. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>According to <code>pkg_add</code>, <code>w3m-img</code> is in direct conflict with <code>w3m</code> (in base install).
+I installed the former after removing the latter. <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p>I also use Github for other non-blogging projects, so doing this is vital. <a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section><br><br><br><p>Comments, suggestions? Email me at <code>ohio&#xFF20;araw&#8228;xyz</code><br>Helpful? Consider <a href=/support>supporting me</a>.<br></p><p>Back to 🏠<a href=/>Index</a> :: 📋<a href=/log>Log</a> :: 📚<a href=/project>Projects</a></p></main></div></body><footer class=small><hr>Everything is licensed under <a href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0</a><br><a href=https://250kb.club>Member of 250KB Club</a><br>This site is private 😏 No cookies, scripts, trackers, and analytics.<br>Opinions and thoughts belong solely to the author. <a href=/disclaimer/>More details here.</a>.</footer></html>
